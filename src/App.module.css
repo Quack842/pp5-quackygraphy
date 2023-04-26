@@ -1,0 +1,49 @@
+.App {
+    font-family: 'Varela Round', sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+.Main {
+    padding-top: 84px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #555555;
+    transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #cfced3;
+}
+
+a:hover i {
+    color: #ddc000;
+    transition: color ease-in-out 0.3s;
+}
+
+i {
+    color: #cfced3;
+    font-size: 1.6rem;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #ddc000;
+}
+
+h1 {
+    font-family: 'Coiny', cursive;
+}
+
+h2, h3, h4 {
+    font-family: 'Inknut Antique', cursive;
+}
