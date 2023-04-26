@@ -1,6 +1,8 @@
 .App {
     font-family: 'Varela Round', sans-serif;
-    background-color: #f8f8f8;
+    background: url('../src/assets/images/background-image.svg');
+    background-position: center;
+    background-size: cover;
     min-height: 100vh;
 }
 
