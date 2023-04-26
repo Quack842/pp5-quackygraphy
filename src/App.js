@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import SignInForm from "./pages/auth/SignInForm";
 import RegisterForm from "./pages/auth/RegisterForm";
 import NotFound from "./components/NotFound";
+import "./api/axiosDefault";
 
 function App() {
   return (
