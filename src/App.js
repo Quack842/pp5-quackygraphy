@@ -14,8 +14,8 @@ function App() {
       <Container className={styles.Main}>
         <Routes>
           <Route path="/" element={<h1>Home Page</h1>} />
-          <Route path="/signin" element={<SignInForm/>} />
-          <Route path="/register" element={<RegisterForm/>} />
+          <Route path="/signin" element={<SignInForm />} />
+          <Route path="/register" element={<RegisterForm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>

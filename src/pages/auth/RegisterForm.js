@@ -1,55 +1,50 @@
-import { React, useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import DuckyImage from "../../assets/images/duck-img-3.jpg";
 
 import styles from "../../assets/styles/SignInRegister.module.css";
 import appStyles from "../../App.module.css";
 
 import {
+  Form,
+  Button,
   Image,
   Col,
   Row,
   Container,
-  Form,
-  Button,
-  Overlay,
-  Tooltip,
   Alert,
 } from "react-bootstrap";
-import PasswordChecklist from "react-password-checklist";
 import axios from "axios";
 
 const RegisterForm = () => {
+
   const [signUpData, setSignUpData] = useState({
     username: "",
-    password: "",
-    confirmPassword: "",
+    password1: "",
+    password2: "",
   });
-  const { username, password, confirmPassword } = signUpData;
+  const navigate = useNavigate();
+  const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
 
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
-
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
-
-  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log("Data is sent to registration");
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      console.log("IN THE TRY BLOCK");
-      navigate.push("/signin");
-    } catch (error) {
-      setErrors(error.response?.data);
-      console.log(error);
+      console.log("Registration Successfull");
+      navigate("/signin");
+      console.log("Successfull redirect");
+    } catch (err) {
+      console.log("Failed to Redirect");
+      setErrors(err.response?.data);
     }
   };
 
@@ -57,12 +52,13 @@ const RegisterForm = () => {
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1>Register</h1>
-          <hr />
+          <h1 className={styles.Header}>sign up</h1>
+
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="username">
-              <Form.Label className="d-none">Username</Form.Label>
+            <Form.Group controlId="username">
+              <Form.Label className="d-none">username</Form.Label>
               <Form.Control
+                className={styles.Input}
                 type="text"
                 placeholder="Username"
                 name="username"
@@ -76,64 +72,49 @@ const RegisterForm = () => {
               </Alert>
             ))}
 
-            <Form.Group className="mb-3" controlId="password">
+            <Form.Group controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
+                className={styles.Input}
                 type="password"
                 placeholder="Password"
-                name="password"
-                value={ password }
-                onChange={handleChange}
-              />
-              {errors.username?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="confirmPassword">
-              <Form.Label className="d-none">Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                name="confirmPassword"
-                value={ confirmPassword }
+                name="password1"
+                value={password1}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.username?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
+            {errors.password1?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
                 {message}
               </Alert>
             ))}
-            <Form.Group ref={target} onClick={() => setShow(!show)}>
-              <i className="fa-solid fa-circle-question"></i> Click For a Hint
-              <Overlay target={target.current} show={show} placement="right">
-                {(props) => (
-                  <Tooltip id="overlay-hint" {...props}>
-                    <PasswordChecklist
-                      rules={[
-                        "minLength",
-                        "specialChar",
-                        "number",
-                        "capital",
-                        "match",
-                      ]}
-                      minLength={5}
-                      value={password}
-                      valueAgain={confirmPassword}
-                    />
-                  </Tooltip>
-                )}
-              </Overlay>
+
+            <Form.Group controlId="password2">
+              <Form.Label className="d-none">Confirm password</Form.Label>
+              <Form.Control
+                className={styles.Input}
+                type="password"
+                placeholder="Confirm password"
+                name="password2"
+                value={password2}
+                onChange={handleChange}
+              />
             </Form.Group>
-            <br />
-            <Button className={styles.Button} variant="primary" type="submit">
-              Register
-            </Button>
+            {errors.password2?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Button type="submit">Sign up</Button>
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert key={idx} variant="warning" className="mt-3">
+                {message}
+              </Alert>
+            ))}
           </Form>
         </Container>
+
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
             Already have an account? <span>Sign in</span>
@@ -144,7 +125,9 @@ const RegisterForm = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image className={`${appStyles.FillerImage}`} src={DuckyImage} />
+        <Image
+          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+        />
       </Col>
     </Row>
   );
