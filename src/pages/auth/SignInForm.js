@@ -16,8 +16,11 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "../../assets/styles/SignInRegister.module.css";
 import appStyles from "../../App.module.css";
 import axios from "axios";
+import { useSetCurrentUser } from "../../context/CurrentUserContext";
 
 const SignInForm = () => {
+  const setCurrentUser = useSetCurrentUser();
+
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -29,7 +32,8 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", signInData);
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
       navigate("/");
       console.log("redirect successfull");
     } catch (err) {

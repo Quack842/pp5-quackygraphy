@@ -1,10 +1,25 @@
 import { React, useState } from "react";
 import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+
 import logo from "../assets/images/ducky-logo.png";
 import styles from "../assets/styles/NavBar.module.css";
+import { useCurrentUser } from "../context/CurrentUserContext";
 
 const NavBar = () => {
+  const currentUser = useCurrentUser();
+  const loggedInIcons = <>{currentUser?.username}</>
+  const loggedOutIcons = (
+    <>
+      <NavLink className={styles.NavLink} to="/signin">
+        <i className="fa-solid fa-door-open"></i> Sign In
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/register">
+        <i className="fa-solid fa-user-plus"></i> Register
+      </NavLink>
+    </>
+  );
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -42,12 +57,7 @@ const NavBar = () => {
                 <NavLink className={styles.NavLink} to="/">
                   <i className="fa-solid fa-house"></i> Home
                 </NavLink>
-                <NavLink className={styles.NavLink} to="/signin">
-                  <i className="fa-solid fa-door-open"></i> Sign In
-                </NavLink>
-                <NavLink className={styles.NavLink} to="/register">
-                  <i className="fa-solid fa-user-plus"></i> Register
-                </NavLink>
+                {currentUser ? loggedInIcons : loggedOutIcons}
               </Nav>
             </Offcanvas.Body>
           </Offcanvas>
