@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import DuckyImage from "../../assets/images/duck-img-3.jpg";
+import { Overlay, Tooltip } from "react-bootstrap";
+import ReactPasswordChecklist from "react-password-checklist";
 
 import styles from "../../assets/styles/SignInRegister.module.css";
 import appStyles from "../../App.module.css";
@@ -16,6 +19,8 @@ import {
 import axios from "axios";
 
 const RegisterForm = () => {
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
 
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -52,13 +57,13 @@ const RegisterForm = () => {
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign up</h1>
-
+          <h1>Register</h1>
+          <hr />
+          {/* The username */}
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="username">
+            <Form.Group className="mb-3" controlId="username">
               <Form.Label className="d-none">username</Form.Label>
               <Form.Control
-                className={styles.Input}
                 type="text"
                 placeholder="Username"
                 name="username"
@@ -71,11 +76,10 @@ const RegisterForm = () => {
                 {message}
               </Alert>
             ))}
-
-            <Form.Group controlId="password1">
+            {/* The First Password */}
+            <Form.Group className="mb-3" controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
-                className={styles.Input}
                 type="password"
                 placeholder="Password"
                 name="password1"
@@ -88,11 +92,10 @@ const RegisterForm = () => {
                 {message}
               </Alert>
             ))}
-
-            <Form.Group controlId="password2">
+            {/* The Second Password */}
+            <Form.Group className="mb-3" controlId="password2">
               <Form.Label className="d-none">Confirm password</Form.Label>
               <Form.Control
-                className={styles.Input}
                 type="password"
                 placeholder="Confirm password"
                 name="password2"
@@ -105,8 +108,36 @@ const RegisterForm = () => {
                 {message}
               </Alert>
             ))}
+            {/* This is The hint button */}
+            <Form.Group>
+              <Form.Label ref={target} onClick={() => setShow(!show)}>
+                <i className="fa-solid fa-circle-question"></i> Click Me for a
+                Hint
+              </Form.Label>
 
-            <Button type="submit">Sign up</Button>
+              <Overlay target={target.current} show={show} placement="right">
+                {(props) => (
+                  <Tooltip id="overlay-example" {...props}>
+                    <ReactPasswordChecklist
+                      rules={[
+                        "minLength",
+                        "specialChar",
+                        "number",
+                        "capital",
+                        "match",
+                      ]}
+                      minLength={8}
+                      value={password1}
+                      valueAgain={password2}
+                      onChange={(isValid) => {}}
+                    />
+                  </Tooltip>
+                )}
+              </Overlay>
+            </Form.Group>
+            <Button type="submit" className={styles.Button}>
+              Register
+            </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
@@ -114,7 +145,7 @@ const RegisterForm = () => {
             ))}
           </Form>
         </Container>
-
+        {/* If the user already have an account */}
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
             Already have an account? <span>Sign in</span>
@@ -125,9 +156,7 @@ const RegisterForm = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
-        />
+        <Image className={appStyles.FillerImage} src={DuckyImage} />
       </Col>
     </Row>
   );

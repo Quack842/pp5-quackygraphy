@@ -2,6 +2,12 @@
     height: calc(100vh - 81px);
 }
 
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 .Button {
     background: url('../images/background-button.svg');
     background-size: cover;
@@ -17,17 +23,6 @@
     border: 2px solid #ddc000;
     color: #141414;
     transform: scale(1.04);
-}
-
-
-.Input {
-    background: #ffffff;
-    border: 1px solid #f0f1f9;
-    box-sizing: border-box;
-    border-radius: 2px;
-    color: #7177a1;
-    text-align: center;
-    padding: 10px;
 }
 
 .Header {
