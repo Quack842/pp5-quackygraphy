@@ -1,17 +1,71 @@
 import { React, useState } from "react";
-import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Container,
+  Offcanvas,
+  Button,
+} from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-import logo from "../assets/images/ducky-logo.png";
+import Logo from "../assets/images/ducky-logo.png";
 import styles from "../assets/styles/NavBar.module.css";
+import Avatar from "../components/Avatar";
 import { useCurrentUser } from "../context/CurrentUserContext";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  const loggedInIcons = <>{currentUser?.username}</>
+  const addPostIcon = (
+    <NavLink
+      className={styles.NavLink}
+      activeClassName={styles.Active}
+      to="/posts/create"
+    >
+      <i className="fa-solid fa-camera-retro"></i> Add Post
+    </NavLink>
+  );
+  const loggedInIcons = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/feed"
+      >
+        <i className="fa-solid fa-bars-staggered"></i> Feed
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/liked"
+      >
+        <i className="fa-solid fa-heart-pulse"></i> Liked
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <Avatar src={currentUser?.profile_image} height={40} />
+      </NavLink>
+      <NavDropdown
+        className={styles.NavLink}
+        title={currentUser?.username}
+        id="basic-nav-dropdown"
+      >
+        <NavDropdown.Divider />
+        <NavDropdown.Item to="/signout">
+          <i className="fa-solid fa-right-from-bracket"></i> Sign Out
+        </NavDropdown.Item>
+      </NavDropdown>
+    </>
+  );
   const loggedOutIcons = (
     <>
-      <NavLink className={styles.NavLink} to="/signin">
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
         <i className="fa-solid fa-door-open"></i> Sign In
       </NavLink>
       <NavLink className={styles.NavLink} to="/register">
@@ -36,7 +90,7 @@ const NavBar = () => {
         <Container>
           <NavLink to="/">
             <Navbar.Brand>
-              <img src={logo} alt="Ducky" height="45" />
+              <img src={Logo} alt="Ducky" height="45" />
             </Navbar.Brand>
           </NavLink>
           <Button
@@ -53,6 +107,7 @@ const NavBar = () => {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
+              {currentUser && addPostIcon}
               <Nav className="ms-auto justify-content-end">
                 <NavLink className={styles.NavLink} to="/">
                   <i className="fa-solid fa-house"></i> Home

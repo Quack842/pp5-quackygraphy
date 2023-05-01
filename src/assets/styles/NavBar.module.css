@@ -4,6 +4,8 @@
 .NavLink {
     font-family:  'Coiny', cursive;
     padding: 5px 10px;
+    position: relative;
+    margin: auto;
 }
 .Button {
     text-decoration: none;
@@ -12,4 +14,20 @@
 }
 .OffCanvas {
     font-family: 'Shadows Into Light', cursive;
+}
+.CustomIcons {
+    height: 30px;
+    width: auto;
+}
+.CustomIcons:hover {
+    height: 30px;
+    width: auto;
+    color: #ddc000;
+    transition: color ease-in-out 0.3s;
+}
+@media screen and (max-width: 925px) {
+    
+.NavLink {
+    margin: 10px 0;
+}
 }
