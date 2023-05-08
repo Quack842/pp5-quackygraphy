@@ -1,0 +1,29 @@
+.Container {
+  min-height: 343px;
+  border-radius: 20px;
+  border: 3px solid #DDC000;
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.22);
+  padding: 20px;
+}
+
+.Row {
+  margin-top: 13%;
+}
+
+.Button {
+  background: url('../images/background-button.svg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #011638;
+  transition: 0.5s all ease-in-out;
+}
+
+.Button:hover {
+  background: url('../images/background-button-hover.svg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ddc000;
+  color: #141414;
+  transform: scale(1.04);
+}

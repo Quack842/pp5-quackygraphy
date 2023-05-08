@@ -58,7 +58,9 @@ const NavBar = () => {
             >
                 <i className="fa-solid fa-heart-pulse"></i> Liked
             </NavLink>
+            <Nav className={styles.NavLink}>
             <Avatar src={currentUser?.profile_image} height={40} />
+            </Nav>
             <NavDropdown
                 className={styles.NavLink}
                 title={currentUser?.username}
