@@ -1,109 +1,207 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
-import { Form, Button, Row, Col, Container } from "react-bootstrap";
+import { Form, Button, Row, Col, Container, Image } from "react-bootstrap";
 import Upload from "../../assets/images/upload.png";
 
 import styles from "../../assets/styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
+import { useNavigate } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefault";
 
 function PostCreateForm() {
+  const [errors, setErrors] = useState({});
 
-    const [errors, setErrors] = useState({});
+  const [postData, setPostData] = useState({
+    title: "",
+    camera_type: "",
+    photo_type: "",
+    content: "",
+    image: "",
+  });
+  const { title, camera_type, photo_type, content, image } = postData;
 
+  const imageInput = useRef(null);
 
-    const textFields = (
-        <div className={`${styles.Container} text-center`}>
-            {/* Form For Uploading the Image */}
-            <Form.Group className="mb-3" controlId="title">
-                <Form.Label>Text</Form.Label>
-                <Form.Control type="text" />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Camera Type</Form.Label>
-                <Form.Select className="mb-3" aria-label="Camera Type">
-                    <option>Click To Select</option>
-                    <option value="dslr_camera">DSLR Camera</option>
-                    <option value="mirrorless_camera">Mirrorless Camera</option>
-                    <option value="bridge_camera">Bridge Camera</option>
-                    <option value="compact_digital_camera">Compact Digital Camera</option>
-                    <option value="smartphone">Smartphone</option>
-                </Form.Select>
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Photo Theme</Form.Label>
-                <Form.Select className="mb-3" aria-label="Photo Theme">
-                    <option>Click To Select</option>
-                    <option value="abstract">Abstract</option>
-                    <option value="action">Action</option>
-                    <option value="animals">Animals</option>
-                    <option value="architecture">Architecture</option>
-                    <option value="black_and_white">Black and White</option>
-                    <option value="colors">Colors</option>
-                    <option value="city">City</option>
-                    <option value="fashion">Fashion</option>
-                    <option value="food">Food</option>
-                    <option value="landscape">Landscape</option>
-                    <option value="macro">Macro</option>
-                    <option value="manipulation">Manipulation</option>
-                    <option value="nature">Nature</option>
-                    <option value="night">Night</option>
-                    <option value="objects">Objects</option>
-                    <option value="people">People</option>
-                    <option value="transportation">Transportation</option>
-                    <option value="water">Water</option>
-                    <option value="wedding">Wedding</option>
-                </Form.Select>
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Content</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    rows={6}
-                    name="content"
-                />
-            </Form.Group>
-            <Button
-                className={styles.Button}
-                onClick={() => { }}
-            >
-                Cancel
-            </Button>
-            <Button
-                type="submit"
-                className={styles.Button}
-            >
-                Post
-            </Button>
-        </div>
-    );
+  const navigate = useNavigate();
 
-    return (
-        <Form>
-            <Row className={styles.Row}>
-                <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-                    <Container
-                        className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image);
+      setPostData({
+        ...postData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("camera_type", camera_type);
+    formData.append("photo_type", photo_type);
+    formData.append("content", content);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/posts/", formData);
+      navigate(`/posts/${data.id}`);
+    } catch (error) {
+      console.log("Could Not Post");
+      if (error.response?.status !== 401) {
+        setErrors(error.response?.data);
+      }
+    }
+  };
+
+  const textFields = (
+    <div className={`${styles.Container} text-center`}>
+      {/* Form For Uploading the Image */}
+
+      {/* Title */}
+      <Form.Group className="mb-3" controlId="title">
+        <Form.Label>Text</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {/* Camera Type */}
+      <Form.Group>
+        <Form.Label>Camera Type</Form.Label>
+        <Form.Select
+          value={camera_type}
+          onChange={handleChange}
+          className="mb-3"
+          aria-label="Camera Type"
+        >
+          <option>Click To Select</option>
+          <option value="dslr_camera">DSLR Camera</option>
+          <option value="mirrorless_camera">Mirrorless Camera</option>
+          <option value="bridge_camera">Bridge Camera</option>
+          <option value="compact_digital_camera">Compact Digital Camera</option>
+          <option value="smartphone">Smartphone</option>
+        </Form.Select>
+      </Form.Group>
+      {/* Photo Type */}
+      <Form.Group>
+        <Form.Label>Photo Theme</Form.Label>
+        <Form.Select
+          value={photo_type}
+          onChange={handleChange}
+          className="mb-3"
+          aria-label="Photo Theme"
+        >
+          <option>Click To Select</option>
+          <option value="abstract">Abstract</option>
+          <option value="action">Action</option>
+          <option value="animals">Animals</option>
+          <option value="architecture">Architecture</option>
+          <option value="black_and_white">Black and White</option>
+          <option value="colors">Colors</option>
+          <option value="city">City</option>
+          <option value="fashion">Fashion</option>
+          <option value="food">Food</option>
+          <option value="landscape">Landscape</option>
+          <option value="macro">Macro</option>
+          <option value="manipulation">Manipulation</option>
+          <option value="nature">Nature</option>
+          <option value="night">Night</option>
+          <option value="objects">Objects</option>
+          <option value="people">People</option>
+          <option value="transportation">Transportation</option>
+          <option value="water">Water</option>
+          <option value="wedding">Wedding</option>
+        </Form.Select>
+      </Form.Group>
+      {/* Content */}
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control
+          value={content}
+          onChange={handleChange}
+          as="textarea"
+          rows={6}
+          name="content"
+        />
+      </Form.Group>
+      {/* Buttons */}
+      <Form.Group>
+        <Button className={styles.ButtonCancel} onClick={() => {}}>
+          Cancel
+        </Button>
+        <Button type="submit" className={styles.Button}>
+          Create
+        </Button>
+      </Form.Group>
+    </div>
+  );
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Row className={styles.Row}>
+        <Col className="py-2 p-0 p-md-2" md={7} sm={12}>
+          <Container
+            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
+          >
+            <Form.Group className="text-center">
+              {image ? (
+                <>
+                  <figure>
+                    <Image
+                      className={appStyles.FillerImage}
+                      src={image}
+                      rounded
+                    />
+                  </figure>
+                  <div>
+                    <Form.Label
+                      className={`${styles.ButtonBlue} btn`}
+                      htmlFor="image-upload"
                     >
-                        <Form.Group className="text-center">
-
-                            <Form.Label
-                                className="d-flex justify-content-center"
-                                htmlFor="image-upload"
-                            >
-                                <Asset src={Upload} message="Click To Upload Image" />
-                            </Form.Label>
-
-                        </Form.Group>
-                        <div className="d-md-none">{textFields}</div>
-                    </Container>
-                </Col>
-                <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container>{textFields}</Container>
-                </Col>
-            </Row>
-        </Form>
-    );
+                      Change the Image
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
+                  className="d-flex justify-content-center"
+                  htmlFor="image-upload"
+                >
+                  <Asset
+                    src={Upload}
+                    message="Click or tap to upload an image"
+                  />
+                </Form.Label>
+              )}
+              <Form.Control
+                id="image-upload"
+                type="file"
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
+              />
+            </Form.Group>
+            <div className="d-md-none">{textFields}</div>
+          </Container>
+        </Col>
+        <Col md={5} sm={12} className="d-none d-md-block p-0 p-md-2">
+          <Container>{textFields}</Container>
+        </Col>
+      </Row>
+    </Form>
+  );
 }
 
 export default PostCreateForm;

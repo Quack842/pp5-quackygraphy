@@ -8,7 +8,44 @@
 }
 
 .Row {
-  margin-top: 13%;
+  margin-top: 5%;
+}
+
+.ButtonBlue {
+  background: url('../images/background-button-blue.svg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #011638;
+  transition: 0.5s all ease-in-out;
+  color: #f8f8f8;
+  margin: 10px;
+}
+
+.ButtonBlue:hover {
+  background: url('../images/background-button-blue-hover.svg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #00013b;
+  color: #141414;
+  transform: scale(1.04);
+}
+
+.ButtonCancel {
+  background: url('../images/background-button-cancel.svg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #011638;
+  transition: 0.5s all ease-in-out;
+  margin: 10px;
+}
+
+.ButtonCancel:hover {
+  background: url('../images/background-button-cancel-hover.svg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #9e0000;
+  color: #141414;
+  transform: scale(1.04);
 }
 
 .Button {
@@ -17,6 +54,7 @@
   background-position: center;
   border: 2px solid #011638;
   transition: 0.5s all ease-in-out;
+  margin: 10px;
 }
 
 .Button:hover {
