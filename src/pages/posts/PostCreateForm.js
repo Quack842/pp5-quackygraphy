@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { Form, Button, Row, Col, Container, Image } from "react-bootstrap";
+import { Form, Button, Row, Col, Container, Image, Alert } from "react-bootstrap";
 import Upload from "../../assets/images/upload.png";
 
 import styles from "../../assets/styles/PostCreateEditForm.module.css";
@@ -77,11 +77,17 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       {/* Camera Type */}
       <Form.Group>
         <Form.Label>Camera Type</Form.Label>
         <Form.Select
           value={camera_type}
+          name="camera_type"
           onChange={handleChange}
           className="mb-3"
           aria-label="Camera Type"
@@ -94,11 +100,17 @@ function PostCreateForm() {
           <option value="smartphone">Smartphone</option>
         </Form.Select>
       </Form.Group>
+      {errors?.camera_type?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       {/* Photo Type */}
       <Form.Group>
         <Form.Label>Photo Theme</Form.Label>
         <Form.Select
           value={photo_type}
+          name="photo_type"
           onChange={handleChange}
           className="mb-3"
           aria-label="Photo Theme"
@@ -120,11 +132,17 @@ function PostCreateForm() {
           <option value="night">Night</option>
           <option value="objects">Objects</option>
           <option value="people">People</option>
+          <option value="sport">Sport</option>
           <option value="transportation">Transportation</option>
           <option value="water">Water</option>
           <option value="wedding">Wedding</option>
         </Form.Select>
       </Form.Group>
+      {errors?.photo_type?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       {/* Content */}
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -136,15 +154,18 @@ function PostCreateForm() {
           name="content"
         />
       </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       {/* Buttons */}
-      <Form.Group>
-        <Button className={styles.ButtonCancel} onClick={() => {}}>
-          Cancel
-        </Button>
-        <Button type="submit" className={styles.Button}>
-          Create
-        </Button>
-      </Form.Group>
+      <Button className={styles.ButtonCancel} onClick={() => navigate('/')}>
+        Cancel
+      </Button>
+      <Button type="submit" className={styles.Button}>
+        Create
+      </Button>
     </div>
   );
 
@@ -193,6 +214,11 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

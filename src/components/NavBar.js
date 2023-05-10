@@ -7,7 +7,7 @@ import {
     Offcanvas,
     Button,
 } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import Logo from "../assets/images/ducky-logo.png";
 import styles from "../assets/styles/NavBar.module.css";
@@ -23,9 +23,12 @@ const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
+    const navigate = useNavigate();
+
     const handleSignOut = async () => {
         try {
             await axios.post("dj-rest-auth/logout/");
+            navigate("/");
             setCurrentUser(null);
         } catch (error) {
             console.log("Failed to log out");
