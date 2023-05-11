@@ -1,0 +1,47 @@
+.Post {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0px 6px 22px -10px rgba(0,0,0,0.75);
+}
+
+.Header {
+    background: linear-gradient(180deg, rgba(1,22,56,0.5) 0%, rgba(221,192,0,0.5) 100%);
+}
+
+.Post figure,
+h5 {
+    margin: 0 0;
+}
+
+.Image {
+    border-radius: 0%;
+}
+
+.Heart {
+    background: radial-gradient(circle, rgba(161,161,9,1) 0%, rgba(255,255,0,1) 100%);
+}
+
+.Heart:hover {
+    color: #011638;
+}
+
+.HeartOutline:hover {
+    color: #8e8e00;
+}
+
+.Icons {
+    color: #011638;
+    
+}
+
+.Icons:hover {
+    cursor: default;
+    color: #011638;
+}
+
+.Text {
+    text-transform: uppercase;
+    font-size: small;
+} 
