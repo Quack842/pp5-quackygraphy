@@ -1,0 +1,21 @@
+.DropdownItem {
+    display: inline-block;
+    max-width: 50%;
+    padding: 0px;
+}
+
+.DropdownItem:hover {
+    background-color: transparent;
+    color: #011638;
+}
+
+.DropdownItem > i, a:hover {
+    background-color: transparent;
+    color: #011638;
+}
+
+.Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+}

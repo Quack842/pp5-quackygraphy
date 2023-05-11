@@ -19,7 +19,6 @@ import {
 import axios from 'axios';
 
 const NavBar = () => {
-    // WORK IN ACTIVE NAV
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
 
