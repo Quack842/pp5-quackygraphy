@@ -68,10 +68,11 @@ const NavBar = () => {
                 title={currentUser?.username}
                 id="basic-nav-dropdown"
             >
-                <NavDropdown.Item
-                    to={`/profiles/${currentUser?.profile_id}`}
-                >
-                    <i className="fa-regular fa-user"></i> Account
+                <NavDropdown.Item>
+                    <NavLink
+                    to={`/profiles/${currentUser?.profile_id}`}>
+                        <i className="fa-regular fa-user"></i> Account
+                    </NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item to="/" onClick={handleSignOut}>
