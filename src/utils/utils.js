@@ -13,7 +13,7 @@ export const fetchMoreData = async (resource, setResource) => {
       }, prevResource.results),
     }));
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
@@ -33,4 +33,16 @@ export const followHelper = (profile, clickedProfile, following_id) => {
     : // this is not the profile the user clicked on or the profile
       // the user owns, so just return it unchanged
       profile;
+};
+
+export const unfollowHelper = (profile, clickedProfile) => {
+  return profile.id === clickedProfile.id
+    ? {
+        ...profile,
+        followers_count: profile.followers_count - 1,
+        following_id: null,
+      }
+    : profile.is_owner
+    ? { ...profile, following_count: profile.following_count - 1 }
+    : profile;
 };

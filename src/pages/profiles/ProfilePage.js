@@ -12,6 +12,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/images/no-results.png";
 
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
+
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefault";
@@ -24,7 +26,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const {setProfileData, handleFollow} = useSetProfileData();
+  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
@@ -55,6 +57,7 @@ function ProfilePage() {
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-center">
+        <Col lg={12}></Col>
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -89,14 +92,21 @@ function ProfilePage() {
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
-              <Button className={styles.Button} onClick={() => {}}>
+              <Button
+                className={styles.Button}
+                onClick={() => handleUnfollow(profile)}
+              >
                 Unfollow
               </Button>
             ) : (
-              <Button className={styles.ButtonBlue} onClick={() => handleFollow (profile)}>
+              <Button
+                className={styles.ButtonBlue}
+                onClick={() => handleFollow(profile)}
+              >
                 Follow
               </Button>
             ))}
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>

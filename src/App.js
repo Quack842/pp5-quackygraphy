@@ -12,6 +12,9 @@ import PostsPage from "./pages/posts/PostsPage";
 import PostEditForm from "./pages/posts/PostEditForm";
 import { useCurrentUser } from "./context/CurrentUserContext";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -32,20 +35,20 @@ function App() {
             exact
             path="/feed"
             element={
-              <PostsPage 
+              <PostsPage
                 message="No results found. Adjust the search keywords Or Follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
-                />
+              />
             }
           />
           <Route
             exact
             path="/liked"
             element={
-              <PostsPage 
+              <PostsPage
                 message="No results found. Adjust the search keywords Or Like a Post."
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-                />
+              />
             }
           />
           <Route exact path="/signin" element={<SignInForm />} />
@@ -54,6 +57,21 @@ function App() {
           <Route exact path="/posts/:id" element={<PostPage />} />
           <Route exact path="/posts/:id/edit" element={<PostEditForm />} />
           <Route exact path="/profiles/:id/" element={<ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            element={<UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            element={<UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            element={<ProfileEditForm />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
