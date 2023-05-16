@@ -6,7 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefault";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 
-import appStyles from "../../App.module.css";
+import styles from "../../assets/styles/ProfileEditForm.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 
 const UserPasswordForm = () => {
   const navigate = useNavigate();
@@ -40,16 +41,15 @@ const UserPasswordForm = () => {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       // Use -1 instead of history.goBack
       navigate(-1);
-    } catch (err) {
-      console.log(err);
-      setErrors(err.response?.data);
+    } catch (error) {
+      setErrors(error.response?.data);
     }
   };
 
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
-        <Container className={appStyles.Content}>
+        <Container className={`${styles.Container} m-auto text-center`}>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
@@ -82,11 +82,13 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
+              className={btnStyles.ButtonCancel}
               onClick={() => navigate(-1)}
             >
               Cancel
             </Button>
             <Button
+              className={btnStyles.Button}
               type="submit"
             >
               Save

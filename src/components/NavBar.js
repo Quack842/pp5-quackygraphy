@@ -10,13 +10,17 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 
 import Logo from "../assets/images/ducky-logo.png";
+
 import styles from "../assets/styles/NavBar.module.css";
+import btnStyles from "../assets/styles/Buttons.module.css";
+
 import Avatar from "../components/Avatar";
 import {
     useCurrentUser,
     useSetCurrentUser,
 } from "../context/CurrentUserContext";
 import axios from 'axios';
+import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
@@ -29,10 +33,8 @@ const NavBar = () => {
             await axios.post("dj-rest-auth/logout/");
             navigate("/");
             setCurrentUser(null);
-        } catch (error) {
-            console.log("Failed to log out");
-            console.log(error);
-        }
+            removeTokenTimestamp();
+        } catch (error) {}
     };
 
     const addPostIcon = (
@@ -117,7 +119,7 @@ const NavBar = () => {
                     </NavLink>
                     <Button
                         variant="secondary"
-                        className={`${styles.Button} d-lg-none`}
+                        className={`${btnStyles.Button} d-lg-none`}
                         onClick={handleShow}
                     >
                         <i className="fa-solid fa-bars"></i>

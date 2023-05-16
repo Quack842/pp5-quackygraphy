@@ -6,7 +6,7 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import Post from "./Post";
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroller";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../context/CurrentUserContext";
@@ -33,7 +33,6 @@ function PostPage() {
         setPost({ results: [post] });
         setComments(comments);
       } catch (error) {
-        console.log(error);
       }
     };
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState, createContext, useContext, useMemo } from "
 import axios from "axios";
 import { axiosRes, axiosReq } from "../api/axiosDefault";
 import { useNavigate } from "react-router-dom";
+import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -17,9 +18,7 @@ export const CurrentUserProvider = ({ children }) => {
         try {
             const { data } = await axiosRes.get("dj-rest-auth/user/");
             setCurrentUser(data);
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) {}
     };
 
     useEffect(() => {
@@ -29,17 +28,21 @@ export const CurrentUserProvider = ({ children }) => {
     useMemo(() => {
         axiosReq.interceptors.request.use(
             async (config) => {
-                try {
-                    await axios.post('/dj-rest-auth/token/refresh/');
-                } catch (error) {
+                if (shouldRefreshToken()){
+                  try {
+                    await axios.post("/dj-rest-auth/token/refresh/");
+                  } catch (error) {
                     setCurrentUser((prevCurrentUser) => {
-                        if (prevCurrentUser) {
-                            navigate("/");
-                        }
-                        return null;
+                      if (prevCurrentUser) {
+                        navigate("/");
+                      }
+                      return null;
                     });
+                    removeTokenTimestamp();
                     return config;
+                  }
                 }
+                
                 return config;
             },
             (error) => {
@@ -53,12 +56,13 @@ export const CurrentUserProvider = ({ children }) => {
                     try {
                         await axios.post('/dj-rest-auth/token/refresh/');
                     } catch (error) {
-                        setCurrentUser(prevCurrentUser => {
-                            if (prevCurrentUser) {
-                                navigate('/signin');
-                            }
-                            return null;
-                        });
+                      setCurrentUser((prevCurrentUser) => {
+                        if (prevCurrentUser) {
+                          navigate("/signin");
+                        }
+                        return null;
+                      });
+                      removeTokenTimestamp();
                     }
                     return axios(error.config);
                 }

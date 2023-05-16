@@ -9,7 +9,6 @@ import { ProfileDataProvider } from "./context/ProfileDataContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
@@ -17,6 +16,5 @@ root.render(
         </ProfileDataProvider>
       </CurrentUserProvider>
     </Router>
-  </React.StrictMode>
 );
 reportWebVitals();

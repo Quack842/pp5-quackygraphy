@@ -9,7 +9,8 @@ import {
   useSetCurrentUser,
 } from "../../context/CurrentUserContext";
 
-import appStyles from "../../App.module.css";
+import styles from "../../assets/styles/ProfileEditForm.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -40,16 +41,15 @@ const UsernameForm = () => {
         username,
       }));
       navigate(-1);
-    } catch (err) {
-      // console.log(err);
-      setErrors(err.response?.data);
+    } catch (error) {
+      setErrors(error.response?.data);
     }
   };
 
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
-        <Container className={appStyles.Content}>
+        <Container className={`${styles.Container} m-auto text-center`}>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
               <Form.Label>Change username</Form.Label>
@@ -66,13 +66,13 @@ const UsernameForm = () => {
               </Alert>
             ))}
             <Button
-              className={appStyles.ButtonCancel}
+              className={btnStyles.ButtonCancel}
               onClick={() => navigate(-1)}
             >
               Cancel
             </Button>
             <Button
-              className={appStyles.Button}
+              className={btnStyles.Button}
               type="submit"
             >
               Save

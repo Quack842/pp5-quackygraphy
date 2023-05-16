@@ -1,0 +1,8 @@
+.Container {
+    min-height: 343px;
+    border-radius: 20px;
+    border: 3px solid #DDC000;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.22);
+    padding: 20px;
+}

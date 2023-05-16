@@ -39,7 +39,6 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       navigate(-1);
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -54,9 +53,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   const handleUnlike = async () => {
@@ -70,9 +67,7 @@ const Post = (props) => {
             : post;
         }),
       }));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (error) {}
   };
 
   return (

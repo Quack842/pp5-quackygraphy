@@ -7,11 +7,6 @@
     position: relative;
     margin: auto;
 }
-.Button {
-    text-decoration: none;
-    background-color: transparent;
-    border: 1px solid #eef0f2;
-}
 .OffCanvas {
     font-family: 'Shadows Into Light', cursive;
 }

@@ -14,12 +14,17 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 
 import styles from "../../assets/styles/SignInRegister.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
+
 import appStyles from "../../App.module.css";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
+  useRedirect('loggedIn');
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -34,10 +39,10 @@ const SignInForm = () => {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      navigate("/");
-      console.log("redirect successfull");
-    } catch (err) {
-      setErrors(err.response?.data);
+      setTokenTimestamp(data);
+      navigate(-1);
+    } catch (error) {
+      setErrors(error.response?.data);
     }
   };
   const handleChange = (event) => {
@@ -83,7 +88,7 @@ const SignInForm = () => {
                 {message}
               </Alert>
             ))}
-            <Button className={styles.Button} type="submit">
+            <Button className={btnStyles.Button} type="submit">
               Sign In
             </Button>
             {errors.non_field_errors?.map((message, idx) => (

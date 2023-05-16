@@ -5,6 +5,7 @@ import { Overlay, Tooltip } from "react-bootstrap";
 import ReactPasswordChecklist from "react-password-checklist";
 
 import styles from "../../assets/styles/SignInRegister.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 
 import {
@@ -17,10 +18,13 @@ import {
   Alert,
 } from "react-bootstrap";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const RegisterForm = () => {
   const [show, setShow] = useState(false);
   const target = useRef(null);
+
+  useRedirect('loggedIn')
 
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -42,14 +46,10 @@ const RegisterForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log("Data is sent to registration");
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      console.log("Registration Successfull");
       navigate("/signin");
-      console.log("Successfull redirect");
-    } catch (err) {
-      console.log("Failed to Redirect");
-      setErrors(err.response?.data);
+    } catch (error) {
+      setErrors(error.response?.data);
     }
   };
 
@@ -135,7 +135,7 @@ const RegisterForm = () => {
                 )}
               </Overlay>
             </Form.Group>
-            <Button type="submit" className={styles.Button}>
+            <Button type="submit" className={btnStyles.Button}>
               Register
             </Button>
             {errors.non_field_errors?.map((message, idx) => (

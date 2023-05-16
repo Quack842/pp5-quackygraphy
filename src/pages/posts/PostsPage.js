@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/images/no-results.png";
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroller";
 
 import { Form, Col, Row, Container } from "react-bootstrap";
 
@@ -26,9 +26,7 @@ function PostsPage({ message, filter = "" }) {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     setHasLoaded(false);

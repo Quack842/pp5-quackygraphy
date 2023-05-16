@@ -1,17 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import {Form, Button, Image, Row, Col, Container, Alert} from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Image,
+  Row,
+  Col,
+  Container,
+  Alert,
+} from "react-bootstrap";
 
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../context/CurrentUserContext";
 
+import styles from "../../assets/styles/ProfileEditForm.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
+
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefault";
 
 const ProfileEditForm = () => {
+  const [errors, setErrors] = useState({});
+
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();
@@ -21,21 +34,20 @@ const ProfileEditForm = () => {
   const [profileData, setProfileData] = useState({
     name: "",
     content: "",
+    camera_type: "",
     image: "",
   });
-  const { name, content, image } = profileData;
+  const { name, content, camera_type, image } = profileData;
 
-  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
-        } catch (err) {
-          console.log(err);
+          const { name, content, camera_type, image } = data;
+          setProfileData({ name, content, camera_type, image });
+        } catch (error) {
           navigate("/");
         }
       } else {
@@ -58,6 +70,7 @@ const ProfileEditForm = () => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("content", content);
+    formData.append("camera_type", camera_type);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -70,15 +83,33 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       navigate(-1);
-    } catch (err) {
-      console.log(err);
-      setErrors(err.response?.data);
+    } catch (error) {
+      setErrors(error.response?.data);
     }
   };
 
   const textFields = (
-    <>
-      <Form.Group>
+    <div className={`${styles.Container} text-center`}>
+    {/* Form For Uploading the Image */}
+
+    {/* Title */}
+      <Form.Group className="mb-3" controlId="title">
+        <Form.Label>Preffered Camera</Form.Label>
+        <Form.Select
+          value={camera_type}
+          name="camera_type"
+          className="mb-3"
+          onChange={handleChange}
+          aria-label="Camera Type"
+          rows={7}
+        >
+          <option>Click To Select</option>
+          <option value="dslr_camera">DSLR Camera</option>
+          <option value="mirrorless_camera">Mirrorless Camera</option>
+          <option value="bridge_camera">Bridge Camera</option>
+          <option value="compact_digital_camera">Compact Digital Camera</option>
+          <option value="smartphone">Smartphone</option>
+        </Form.Select>
         <Form.Label>Bio</Form.Label>
         <Form.Control
           as="textarea"
@@ -94,15 +125,14 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-      <Button
-        onClick={() => navigate(-1)}
-      >
-        cancel
+      {/* Buttons */}
+      <Button className={btnStyles.ButtonCancel} onClick={() => navigate(-1)}>
+        Cancel
       </Button>
-      <Button type="submit">
-        save
+      <Button type="submit" className={btnStyles.Button}>
+        Save
       </Button>
-    </>
+    </div>
   );
 
   return (
@@ -122,17 +152,15 @@ const ProfileEditForm = () => {
                 </Alert>
               ))}
               <div>
-                <Form.Label
-                  className={`btn my-auto`}
-                  htmlFor="image-upload"
-                >
+                <Form.Label className={`btn my-auto`} htmlFor="image-upload">
                   Change the image
                 </Form.Label>
               </div>
-              <Form.File
+              <Form.Control
                 id="image-upload"
-                ref={imageFile}
+                type="file"
                 accept="image/*"
+                ref={imageFile}
                 onChange={(e) => {
                   if (e.target.files.length) {
                     setProfileData({

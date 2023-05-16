@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "../../assets/styles/Profiles.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 
 import { useCurrentUser } from "../../context/CurrentUserContext";
 
@@ -36,11 +37,11 @@ const Profile = (props) => {
           currentUser &&
           !is_owner &&
           (following_id ? (
-            <Button className={styles.Button} onClick={() => handleUnfollow(profile)}>
+            <Button className={btnStyles.Button} onClick={() => handleUnfollow(profile)}>
               Unfollow
             </Button>
           ) : (
-            <Button className={styles.ButtonBlue} onClick={() => handleFollow(profile)}>
+            <Button className={btnStyles.ButtonBlue} onClick={() => handleFollow(profile)}>
               Follow
             </Button>
           ))}

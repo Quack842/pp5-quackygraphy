@@ -4,11 +4,12 @@ import { Col, Row, Container, Button, Image } from "react-bootstrap";
 import Asset from "../../components/Asset";
 
 import styles from "../../assets/styles/ProfilePage.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import Post from "../posts/Post";
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroller";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/images/no-results.png";
 
@@ -47,9 +48,7 @@ function ProfilePage() {
         }));
         setProfilePosts(profilePosts);
         setHasLoaded(true);
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (error) {}
     };
     fetchData();
   }, [id, setProfileData]);
@@ -57,7 +56,6 @@ function ProfilePage() {
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-center">
-        <Col lg={12}></Col>
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -68,15 +66,15 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2 text-capitalize">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={4}>
               <div>{profile?.posts_count}</div>
               <div>Posts</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={4}>
               <div>{profile?.followers_count}</div>
               <div>Followers</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={4}>
               <div>{profile?.following_count}</div>
               <div>Following</div>
             </Col>
@@ -93,14 +91,14 @@ function ProfilePage() {
             !is_owner &&
             (profile?.following_id ? (
               <Button
-                className={styles.Button}
+                className={btnStyles.Button}
                 onClick={() => handleUnfollow(profile)}
               >
                 Unfollow
               </Button>
             ) : (
               <Button
-                className={styles.ButtonBlue}
+                className={btnStyles.ButtonBlue}
                 onClick={() => handleFollow(profile)}
               >
                 Follow

@@ -1,16 +1,28 @@
 import React, { useState, useRef } from "react";
 
-import { Form, Button, Row, Col, Container, Image, Alert } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Container,
+  Image,
+  Alert,
+} from "react-bootstrap";
 import Upload from "../../assets/images/upload.png";
 
 import styles from "../../assets/styles/PostCreateEditForm.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useNavigate } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 
+import { useRedirect } from "../../hooks/useRedirect";
+
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
+  useRedirect('loggedOut');
 
   const [postData, setPostData] = useState({
     title: "",
@@ -56,7 +68,6 @@ function PostCreateForm() {
       const { data } = await axiosReq.post("/posts/", formData);
       navigate(`/posts/${data.id}`);
     } catch (error) {
-      console.log("Could Not Post");
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }
@@ -160,10 +171,10 @@ function PostCreateForm() {
         </Alert>
       ))}
       {/* Buttons */}
-      <Button className={styles.ButtonCancel} onClick={() => navigate('/')}>
+      <Button className={btnStyles.ButtonCancel} onClick={() => navigate("/")}>
         Cancel
       </Button>
-      <Button type="submit" className={styles.Button}>
+      <Button type="submit" className={btnStyles.Button}>
         Create
       </Button>
     </div>
@@ -188,7 +199,7 @@ function PostCreateForm() {
                   </figure>
                   <div>
                     <Form.Label
-                      className={`${styles.ButtonBlue} btn`}
+                      className={`${btnStyles.ButtonBlue} btn`}
                       htmlFor="image-upload"
                     >
                       Change the Image

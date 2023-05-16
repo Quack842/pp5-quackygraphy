@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
   Form,
@@ -11,8 +12,9 @@ import {
 } from "react-bootstrap";
 
 import styles from "../../assets/styles/PostCreateEditForm.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
 import appStyles from "../../App.module.css";
-import { useNavigate, useParams } from "react-router-dom";
+
 import { axiosReq } from "../../api/axiosDefault";
 
 function PostEditForm() {
@@ -41,7 +43,6 @@ function PostEditForm() {
 
         is_owner ? setPostData({title, content, image, camera_type, photo_type}) : navigate(-1)
       } catch (error) {
-        console.log(error);
       }
     };
 
@@ -82,7 +83,6 @@ function PostEditForm() {
       await axiosReq.put(`/posts/${id}/`, formData);
       navigate(`/posts/${id}`);
     } catch (error) {
-      console.log("Could Not Post");
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }
@@ -186,10 +186,10 @@ function PostEditForm() {
         </Alert>
       ))}
       {/* Buttons */}
-      <Button className={styles.ButtonCancel} onClick={() => navigate(-1)}>
+      <Button className={btnStyles.ButtonCancel} onClick={() => navigate(-1)}>
         Cancel
       </Button>
-      <Button type="submit" className={styles.Button}>
+      <Button type="submit" className={btnStyles.Button}>
         Save
       </Button>
     </div>
@@ -208,7 +208,7 @@ function PostEditForm() {
               </figure>
               <div>
                 <Form.Label
-                  className={`${styles.ButtonBlue} btn`}
+                  className={`${btnStyles.ButtonBlue} btn`}
                   htmlFor="image-upload"
                 >
                   Change the Image
