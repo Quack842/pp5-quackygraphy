@@ -1,70 +1,64 @@
-# Tick It
-Developer: Jamie King
+# Quacky-Graphy
 
 ![Responsive Image](docs/readme/responsive.png)
 
-[View live Website Here!](https://pp5-quackygraphy-app.herokuapp.com/)
+Quacky-Graphy is a social platform website where users can post their awesome Pictures they have taken with thier cameras. Users can upload their professional pictures and give details about the pictures. 
+
+You can View the Live website [By Clicking Here!](https://pp5-quackygraphy-app.herokuapp.com/)
 
 ## Table of Contents
-  1. [About](#about)
-  2. [Project Goals](#project-goals)
-  3. [User Experience](#user-experience)
-      1. [Target Audience](#target-audience)
-      2. [User Requirements and Expectations](#user-requirements-and-expectations)
-      3. [User Stories](#user-stories)
-      4. [Site Owner Stories](#site-owner-stories)
-  4. [Technical Design](#technical-design)
+  1. [Project Goals](#project-goals)
+  2. [User Experience](#user-experience)
+        - [Target Audience](#target-audience)
+        - [User Requirements and Expectations](#user-requirements-and-expectations)
+        - [User Stories](#user-stories)
+        - [Site Owner Stories](#site-owner-stories)
+  3. [Technical Design](#technical-design)
       1. [Agile Design](#agile-design)
       2. [CRUD Functionality](#crud-functionality)
       3. [Colours](#colours)
       4. [Fonts](#fonts)
       5. [Wireframes](#wireframes)
-  5. [Technologies Used](#technologies-used)
+  4. [Technologies Used](#technologies-used)
       1. [Coding Languages](#coding-languages)
       2. [Frameworks and Tools](#frameworks-and-tools)
       3. [Libraries](#libraries)
-  6. [Front-End](#front-end)
+  5. [Front-End](#front-end)
       1. [React](#react)
-  7. [Back-End API](#back-end-api)
+  6. [Back-End API](#back-end-api)
       1. [Django REST Framework](#django-rest-framework)
-  8. [Features](#features)
-  9. [Future features / improvements](#future-features--improvements)
-  10. [Validation](#validation)
+  7. [Features](#features)
+  8. [Future features / improvements](#future-features--improvements)
+  9. [Validation](#validation)
       1. [HTML](#html-validation)
       2. [CSS](#css-validation)
       3. [ESLint JavaScript JSX Validation](#eslint-javascript-jsx-validation)
       4. [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse-validation)
       5. [WAVE Validation](#wave-validation)
-  11. [Testing](#testing)
+  10. [Testing](#testing)
       1. [Device Testing](#device-testing)
       2. [Browser Compatibility](#browser-compatibility)
       3. [Manual Testing](#manual-testing)
-  12. [Bugs](#bugs)
-  13. [Deployment](#deployment)
+  11. [Bugs](#bugs)
+  12. [Deployment](#deployment)
       1. [Heroku](#heroku)
       2. [Forking GitHub Repo](#forking-the-github-repository)
       3. [Clone a GitHub Repo](#clone-a-github-repository)
-  14. [Credits](#credits)
+  13. [Credits](#credits)
       1. [Tutorial](#tutorials)
       2. [Code](#code)
       3. [Literature](#literature)
       4. [Misc](#misc)
-  15. [Acknowledgements](#acknowledgements)
-
-
-## About
-
-The Tick It web app has been developed to provide user's the chance to create and carry out tasks online.
+  14. [Acknowledgements](#acknowledgements)
 
 ## Project Goals
 
-The goal for this project was to build a productivity platform in which users can create tasks where other users who feel they can help, can carry out the work as described in the task detail. Tasks can be assigned to members and packs can also be created to group tasks together.
+The Goal of this project was to build a Social Media Platform based website so users can upload their best shot pictures they have taken with their professional cameras, or even their smartphone! The user can show which camera they used and what category the shot was based on.
 
+The key functionality of the Website:
 
-The key functionality aspects:
-
-- The site to be simple and use intuitive navigation across all pages
-- User authentication
+- The website should be simple and easy to navigate across all the pages.
+- User Authentication so users can't edit other users profiles, posts and comments.
 - User interaction via tasks, comments and packs
 - User's to have their own profiles with brief description, profile image and tab group consisting of their owned tasks, packs and other users tasks which they have been assigned
 - CRUD functionality for task, comments, packs and their profile
