@@ -15,7 +15,7 @@ import NoResults from "../../assets/images/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 import { useCurrentUser } from "../../context/CurrentUserContext";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefault";
 import {
   useProfileData,

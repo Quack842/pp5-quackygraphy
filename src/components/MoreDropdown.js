@@ -45,30 +45,29 @@ export function ProfileEditDropdown({ id }) {
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
-      <Dropdown.Menu>
+      <Dropdown.Menu variant="dark">
         <Dropdown.Item
-        className="d-flex"
+          className="d-flex"
           onClick={() => navigate(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i class="fa-solid fa-user-pen flex-fill"></i>&nbsp;
+          <i className="fa-solid fa-user-pen flex-fill"></i>&nbsp;
           <span className="text-end">Edit Profile</span>
-          
         </Dropdown.Item>
         <Dropdown.Item
-        className="d-flex"
+          className="d-flex"
           onClick={() => navigate(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
-          <i className="fa-regular fa-id-card flex-fill"></i>&nbsp; 
+          <i className="fa-regular fa-id-card flex-fill"></i>&nbsp;
           <span className="text-end">Change Username</span>
         </Dropdown.Item>
         <Dropdown.Item
-        className="d-flex"
+          className="d-flex"
           onClick={() => navigate(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
-          <i className="fa-solid fa-unlock-keyhole flex-fill"></i>&nbsp; 
+          <i className="fa-solid fa-unlock-keyhole flex-fill"></i>&nbsp;
           <span className="text-end">Change Password</span>
         </Dropdown.Item>
       </Dropdown.Menu>
