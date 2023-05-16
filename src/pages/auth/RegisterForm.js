@@ -110,7 +110,7 @@ const RegisterForm = () => {
             ))}
             {/* This is The hint button */}
             <Form.Group>
-              <Form.Label ref={target} onClick={() => setShow(!show)}>
+              <Form.Label ref={target} onCli ck={() => setShow(!show)}>
                 <i className="fa-solid fa-circle-question"></i> Click Me for a
                 Hint
               </Form.Label>
