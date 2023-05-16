@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import {Form, InputGroup} from "react-bootstrap";
 
 import styles from "../../assets/styles/CommentCreateEditForm.module.css";
+import btnStyles from "../../assets/styles/Buttons.module.css";
+
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefault";
 
@@ -56,7 +58,7 @@ function CommentCreateForm(props) {
         </InputGroup>
       </Form.Group>
       <button
-        className={`${styles.Button} btn d-block ms-auto mt-1`}
+        className={`${btnStyles.Button} btn d-block ms-auto mt-1 me-3`}
         disabled={!content.trim()}
         type="submit"
       >

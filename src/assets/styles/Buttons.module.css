@@ -1,3 +1,8 @@
+.ButtonNav {
+    background-color: transparent;
+    color: 2px solid rgb(79, 79, 79);
+}
+
 .Button {
     background: url('../images/background-button.svg');
     background-size: cover;

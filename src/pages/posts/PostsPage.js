@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/images/no-results.png";
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import { Form, Col, Row, Container } from "react-bootstrap";
 

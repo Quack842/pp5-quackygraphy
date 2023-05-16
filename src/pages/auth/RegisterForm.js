@@ -115,7 +115,7 @@ const RegisterForm = () => {
                 Hint
               </Form.Label>
 
-              <Overlay target={target.current} show={show} placement="right">
+              <Overlay target={target.current} show={show} placement="bottom">
                 {(props) => (
                   <Tooltip id="overlay-example" {...props}>
                     <ReactPasswordChecklist

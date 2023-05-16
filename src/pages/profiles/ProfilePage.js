@@ -9,7 +9,7 @@ import appStyles from "../../App.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import Post from "../posts/Post";
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/images/no-results.png";
 
