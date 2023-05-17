@@ -41,9 +41,10 @@ function PostEditForm() {
         const { title, content, image, camera_type, photo_type, is_owner } =
           data;
 
-        is_owner ? setPostData({title, content, image, camera_type, photo_type}) : navigate(-1)
-      } catch (error) {
-      }
+        is_owner
+          ? setPostData({ title, content, image, camera_type, photo_type })
+          : navigate(-1);
+      } catch (error) {}
     };
 
     handleMount();
@@ -95,7 +96,7 @@ function PostEditForm() {
 
       {/* Title */}
       <Form.Group className="mb-3" controlId="title">
-        <Form.Label>Text</Form.Label>
+        <Form.Label className={styles.FontLabel}>Text</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -110,7 +111,7 @@ function PostEditForm() {
       ))}
       {/* Camera Type */}
       <Form.Group>
-        <Form.Label>Camera Type</Form.Label>
+        <Form.Label className={styles.FontLabel}>Camera Type</Form.Label>
         <Form.Select
           value={camera_type}
           name="camera_type"
@@ -133,7 +134,7 @@ function PostEditForm() {
       ))}
       {/* Photo Type */}
       <Form.Group>
-        <Form.Label>Photo Theme</Form.Label>
+        <Form.Label className={styles.FontLabel}>Photo Theme</Form.Label>
         <Form.Select
           value={photo_type}
           name="photo_type"
@@ -171,7 +172,7 @@ function PostEditForm() {
       ))}
       {/* Content */}
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label className={styles.FontLabel}>Content</Form.Label>
         <Form.Control
           value={content}
           onChange={handleChange}
@@ -215,6 +216,7 @@ function PostEditForm() {
                 </Form.Label>
               </div>
               <Form.Control
+                className="d-none"
                 id="image-upload"
                 type="file"
                 accept="image/*"

@@ -11,6 +11,7 @@
     background-position: center;
     border: 2px solid #011638;
     margin: auto;
+    font-family: 'Varela Round', sans-serif;
     transition: 0.5s all ease-in-out;
 }
 
@@ -31,6 +32,7 @@
     border: 2px solid #011638;
     transition: 0.5s all ease-in-out;
     color: #f8f8f8;
+    font-family: 'Varela Round', sans-serif;
     margin: 10px;
 }
 
@@ -50,6 +52,7 @@
     border-radius: 25px;
     color: #f8f8f8;
     border: 2px solid #011638;
+    font-family: 'Varela Round', sans-serif;
     transition: 0.5s all ease-in-out;
     margin: 10px;
 }

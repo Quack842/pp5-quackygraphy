@@ -64,19 +64,19 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2 text-capitalize">{profile?.owner}</h3>
+          <h3 className="m-2 mb-3 text-capitalize">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={4}>
               <div>{profile?.posts_count}</div>
-              <div>Posts</div>
+              <div className={styles.FontDetails}>Posts</div>
             </Col>
             <Col xs={4}>
               <div>{profile?.followers_count}</div>
-              <div>Followers</div>
+              <div className={styles.FontDetails}>Followers</div>
             </Col>
             <Col xs={4}>
               <div>{profile?.following_count}</div>
-              <div>Following</div>
+              <div className={styles.FontDetails}>Following</div>
             </Col>
           </Row>
           <Row>
@@ -106,7 +106,7 @@ function ProfilePage() {
             ))}
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.content && <Col className={`${styles.FontBio} p-3`}>{profile.content}</Col>}
       </Row>
     </>
   );

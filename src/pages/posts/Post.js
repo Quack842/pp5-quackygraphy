@@ -73,7 +73,7 @@ const Post = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Header className={styles.Header}>
-        <div className="align-items-center d-flex">
+        <div className={`${styles.Font} align-items-center d-flex`}>
           <Link to={`/profiles/${profile_id}`} className="flex-fill">
             <Avatar src={profile_image} height={55} />
             {owner}

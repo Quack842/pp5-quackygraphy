@@ -6,3 +6,8 @@
     box-shadow: 0px 0px 22px 0px rgba(0, 0, 0, 0.22);
     padding: 20px;
 }
+
+.FontLabel {
+    font-family: 'Coiny', sans-serif;
+    font-size: 1.6rem;
+}

@@ -89,12 +89,11 @@ const ProfileEditForm = () => {
   };
 
   const textFields = (
-    <div className={`${styles.Container} text-center`}>
+    <div className="text-center">
     {/* Form For Uploading the Image */}
-
     {/* Title */}
-      <Form.Group className="mb-3" controlId="title">
-        <Form.Label>Preffered Camera</Form.Label>
+      <Form.Group className={`${styles.Container} mb-3`} controlId="title">
+        <Form.Label className={styles.FontLabel}>Preffered Camera</Form.Label>
         <Form.Select
           value={camera_type}
           name="camera_type"
@@ -110,7 +109,7 @@ const ProfileEditForm = () => {
           <option value="compact_digital_camera">Compact Digital Camera</option>
           <option value="smartphone">Smartphone</option>
         </Form.Select>
-        <Form.Label>Bio</Form.Label>
+        <Form.Label className={styles.FontLabel}>Bio</Form.Label>
         <Form.Control
           as="textarea"
           value={content}
@@ -139,7 +138,7 @@ const ProfileEditForm = () => {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={appStyles.Content}>
+          <Container className={styles.Container}>
             <Form.Group>
               {image && (
                 <figure>
@@ -152,12 +151,13 @@ const ProfileEditForm = () => {
                 </Alert>
               ))}
               <div>
-                <Form.Label className={`btn my-auto`} htmlFor="image-upload">
+                <Form.Label className={`${btnStyles.ButtonBlue} btn my-auto`} htmlFor="image-upload">
                   Change the image
                 </Form.Label>
               </div>
               <Form.Control
                 id="image-upload"
+                className="d-none"
                 type="file"
                 accept="image/*"
                 ref={imageFile}

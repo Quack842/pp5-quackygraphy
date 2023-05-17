@@ -10,3 +10,8 @@
 .Row {
   margin-top: 5%;
 }
+
+.FontLabel {
+  font-family: 'Coiny', sans-serif;
+  font-size: 1.6rem;
+}

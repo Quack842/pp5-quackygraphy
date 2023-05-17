@@ -80,7 +80,7 @@ function PostCreateForm() {
 
       {/* Title */}
       <Form.Group className="mb-3" controlId="title">
-        <Form.Label>Text</Form.Label>
+        <Form.Label className={styles.FontLabel}>Text</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -95,7 +95,7 @@ function PostCreateForm() {
       ))}
       {/* Camera Type */}
       <Form.Group>
-        <Form.Label>Camera Type</Form.Label>
+        <Form.Label className={styles.FontLabel}>Camera Type</Form.Label>
         <Form.Select
           value={camera_type}
           name="camera_type"
@@ -118,7 +118,7 @@ function PostCreateForm() {
       ))}
       {/* Photo Type */}
       <Form.Group>
-        <Form.Label>Photo Theme</Form.Label>
+        <Form.Label className={styles.FontLabel}>Photo Theme</Form.Label>
         <Form.Select
           value={photo_type}
           name="photo_type"
@@ -156,7 +156,7 @@ function PostCreateForm() {
       ))}
       {/* Content */}
       <Form.Group>
-        <Form.Label>Content</Form.Label>
+        <Form.Label className={styles.FontLabel}>Content</Form.Label>
         <Form.Control
           value={content}
           onChange={handleChange}

@@ -46,7 +46,6 @@ const NavBar = () => {
     <NavLink
       onClick={handleClose}
       className={styles.NavLink}
-      activeClassName={styles.Active}
       to="/posts/create"
     >
       <i className="fa-solid fa-camera-retro"></i> Add Post
@@ -57,15 +56,13 @@ const NavBar = () => {
       <NavLink
         onClick={handleClose}
         className={styles.NavLink}
-        activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fa-solid fa-bars-staggered"></i> Feed
+        <i className="fa-solid fa-bars-staggered"></i> FYP
       </NavLink>
       <NavLink
         onClick={handleClose}
         className={styles.NavLink}
-        activeClassName={styles.Active}
         to="/liked"
       >
         <i className="fa-solid fa-heart-pulse"></i> Liked
@@ -98,7 +95,7 @@ const NavBar = () => {
       <NavLink
         onClick={handleClose}
         className={styles.NavLink}
-        activeClassName={styles.Active}
+         
         to="/signin"
       >
         <i className="fa-solid fa-door-open"></i> Sign In
