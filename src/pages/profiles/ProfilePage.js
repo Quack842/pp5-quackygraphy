@@ -27,7 +27,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const {setProfileData, handleFollow, handleUnfollow} = useSetProfileData();
+  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
@@ -57,6 +57,7 @@ function ProfilePage() {
     <>
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
+          {/* Main profile Image */}
           <Image
             className={styles.ProfileImage}
             roundedCircle
@@ -66,6 +67,7 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2 mb-3 text-capitalize">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
+            {/* Follow/Post/Follwoers Details */}
             <Col xs={4}>
               <div>{profile?.posts_count}</div>
               <div className={styles.FontDetails}>Posts</div>
@@ -81,12 +83,14 @@ function ProfilePage() {
           </Row>
           <Row>
             <Col xs={12}>
+              {/* Favourite Camera type, when applicable */}
               <div className={styles.FontTitle}>Favourite Camera Type</div>
               <div className={styles.Font}>{profile?.camera_type}</div>
             </Col>
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
+          {/* The Follow/Unfollow Button when user is not signed in */}
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
@@ -104,17 +108,21 @@ function ProfilePage() {
                 Follow
               </Button>
             ))}
-            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+          {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         </Col>
-        {profile?.content && <Col className={`${styles.FontBio} p-3`}>{profile.content}</Col>}
+        {/* The profile Bio if applicable */}
+        {profile?.content && (
+          <Col className={`${styles.FontBio} p-3`}>{profile.content}</Col>
+        )}
       </Row>
     </>
   );
 
   const mainProfilePosts = (
     <>
+      {/* The posts of the user */}
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center">All {profile?.owner}'s Posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
@@ -140,6 +148,7 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* User posts mobile */}
         <PopularProfiles mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (

@@ -21,7 +21,7 @@ import { axiosReq } from "../../api/axiosDefault";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
-  useRedirect('loggedOut');
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -75,9 +75,8 @@ function PostCreateForm() {
   };
 
   const textFields = (
-    <div className={`${styles.Container} text-center`}>
-      {/* Form For Uploading the Image */}
-
+    // Form For Uploading the Image
+    <div className="text-center">
       {/* Title */}
       <Form.Group className="mb-3" controlId="title">
         <Form.Label className={styles.FontLabel}>Text</Form.Label>
@@ -183,10 +182,8 @@ function PostCreateForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row className={styles.Row}>
-        <Col className="py-2 p-0 p-md-2" md={7} sm={12}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
+        <Col className={`${styles.Container} m-auto py-2 p-0 p-md-2`} md={6}>
+          <Container>
             <Form.Group className="text-center">
               {image ? (
                 <>
@@ -218,6 +215,7 @@ function PostCreateForm() {
                 </Form.Label>
               )}
               <Form.Control
+                className="d-none"
                 id="image-upload"
                 type="file"
                 accept="image/*"
@@ -233,7 +231,11 @@ function PostCreateForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} sm={12} className="d-none d-md-block p-0 p-md-2">
+        <Col md={1}></Col>
+        <Col
+          md={5}
+          className={`${styles.Container} d-none d-md-block p-0 p-md-2`}
+        >
           <Container>{textFields}</Container>
         </Col>
       </Row>

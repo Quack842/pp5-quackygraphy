@@ -38,8 +38,7 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       navigate(-1);
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const handleLike = async () => {
@@ -74,30 +73,37 @@ const Post = (props) => {
     <Card className={styles.Post}>
       <Card.Header className={styles.Header}>
         <div className={`${styles.Font} align-items-center d-flex`}>
+          {/* Avatar of the user who post it is */}
           <Link to={`/profiles/${profile_id}`} className="flex-fill">
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
+
+          {/* When the user post/edited the post */}
           <div className="justify-content-end d-flex">
             <span>{updated_at}</span>
             &nbsp;
             {is_owner && (
               <MoreDropdown
-              handleEdit={handleEdit}
-              handleDelete={handleDelete} />
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
             )}
           </div>
         </div>
         <div className="text-center d-flex">
+          {/* Title Of the Post */}
           {title && (
             <Card.Title className="flex-fill m-auto">{title}</Card.Title>
           )}
+          {/* Camera Type of the user, if selected */}
           {camera_type && (
             <Card.Text className={`${styles.Text} flex-fill m-auto`}>
               <i className={`${styles.Icons} fa-solid fa-camera`}></i>{" "}
               {camera_type}
             </Card.Text>
           )}
+          {/* Photo type of the user, if selected */}
           {photo_type && (
             <Card.Text className={`${styles.Text} flex-fill m-auto`}>
               <i className={`${styles.Icons} fa-regular fa-images`}></i>{" "}
@@ -106,11 +112,14 @@ const Post = (props) => {
           )}
         </div>
       </Card.Header>
+      {/* Image that the user posted */}
       <Link>
         <Card.Img className={styles.Image} src={image} alt={title} />
       </Link>
       <Card.Footer className={styles.Footer}>
+        {/* The content the user added to the post */}
         {content && <Card.Text>{content}</Card.Text>}
+        {/* Like Button if it is users own post */}
         {is_owner ? (
           <OverlayTrigger
             placement="top"
@@ -120,10 +129,12 @@ const Post = (props) => {
           </OverlayTrigger>
         ) : like_id ? (
           <span onClick={handleUnlike}>
+            {/* Unlike button if Clicked */}
             <i className={`fa-solid fa-fire me-2 ${styles.Heart}`} />
           </span>
         ) : currentUser ? (
           <span onClick={handleLike}>
+            {/* Like button if Clicked */}
             <i className={`fa-solid fa-fire me-2 ${styles.HeartOutline}`} />
           </span>
         ) : (
@@ -131,6 +142,7 @@ const Post = (props) => {
             placement="top"
             overlay={<Tooltip>Log in to like posts!</Tooltip>}
           >
+            {/* When no user is signed in */}
             <i className="fa-solid fa-fire me-2" />
           </OverlayTrigger>
         )}

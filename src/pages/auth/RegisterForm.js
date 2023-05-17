@@ -24,7 +24,8 @@ const RegisterForm = () => {
   const [show, setShow] = useState(false);
   const target = useRef(null);
 
-  useRedirect('loggedIn')
+  // Controls where user have access to depending on Log in status
+  useRedirect("loggedIn");
 
   const [signUpData, setSignUpData] = useState({
     username: "",
@@ -36,6 +37,7 @@ const RegisterForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // Handles the data when a user registers
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -43,6 +45,7 @@ const RegisterForm = () => {
     });
   };
 
+  // Submits the data when a user registers to the database
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -110,9 +113,9 @@ const RegisterForm = () => {
             ))}
             {/* This is The hint button */}
             <Form.Group>
-              <Form.Label ref={target} onCli ck={() => setShow(!show)}>
-                <i className="fa-solid fa-circle-question"></i> Click Me for a
-                Hint
+              <Form.Label ref={target} onClick={() => setShow(!show)}>
+                <i className="fa-solid fa-circle-question"></i> Click for
+                Hint (Click Again to Close)
               </Form.Label>
 
               <Overlay target={target.current} show={show} placement="bottom">

@@ -39,6 +39,7 @@ function CommentEditForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
+        {/* Text area to edit the comment */}
         <Form.Control
           className={styles.FormEdit}
           as="textarea"
@@ -47,6 +48,7 @@ function CommentEditForm(props) {
           rows={2}
         />
       </Form.Group>
+      {/* Buttons */}
       <div className="text-right">
         <button
           className={styles.ButtonCancel}

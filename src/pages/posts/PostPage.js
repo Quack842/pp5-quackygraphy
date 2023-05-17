@@ -32,8 +32,7 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setComments(comments);
-      } catch (error) {
-      }
+      } catch (error) {}
     };
 
     handleMount();
@@ -42,8 +41,11 @@ function PostPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* This will be the list of popular profiles on the mobile */}
         <PopularProfiles mobile />
+        {/* The actual Post itself */}
         <Post {...post.results[0]} setPosts={setPost} />
+        {/* The comment section below the post */}
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
@@ -57,6 +59,7 @@ function PostPage() {
             "Comments Section"
           ) : null}
           {comments.results.length ? (
+            // InfiniteScroll to scroll when there is more comments
             <InfiniteScroll
               children={comments.results.map((comment) => (
                 <Comment
@@ -72,8 +75,10 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
+            // If there is no comments and owner is false
             <span>No comments yet, be the first to comment!</span>
           ) : (
+            // If theres no comments and owner is true
             <span>No comments... yet</span>
           )}
         </Container>

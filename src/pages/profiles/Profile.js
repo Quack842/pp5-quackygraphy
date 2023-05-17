@@ -18,30 +18,39 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const {handleFollow, handleUnfollow} = useSetProfileData();
+  const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
     >
       <div>
+        {/* Main Profile Picture */}
         <Link className="align-self-center flex-fill" to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
         </Link>
       </div>
       <div className={`mx-2 ${styles.WordBreak} flex-fill`}>
+        {/* The name of the owner */}
         <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && "ml-auto"}`}>
+        {/* The follow/ unfollow Button */}
         {!mobile &&
           currentUser &&
           !is_owner &&
           (following_id ? (
-            <Button className={btnStyles.Button} onClick={() => handleUnfollow(profile)}>
+            <Button
+              className={btnStyles.Button}
+              onClick={() => handleUnfollow(profile)}
+            >
               Unfollow
             </Button>
           ) : (
-            <Button className={btnStyles.ButtonBlue} onClick={() => handleFollow(profile)}>
+            <Button
+              className={btnStyles.ButtonBlue}
+              onClick={() => handleFollow(profile)}
+            >
               Follow
             </Button>
           ))}

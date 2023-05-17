@@ -19,7 +19,6 @@ import {
 import styles from "../../assets/styles/ProfileEditForm.module.css";
 import btnStyles from "../../assets/styles/Buttons.module.css";
 
-import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefault";
 
 const ProfileEditForm = () => {
@@ -38,7 +37,6 @@ const ProfileEditForm = () => {
     image: "",
   });
   const { name, content, camera_type, image } = profileData;
-
 
   useEffect(() => {
     const handleMount = async () => {
@@ -90,10 +88,11 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <div className="text-center">
-    {/* Form For Uploading the Image */}
-    {/* Title */}
-      <Form.Group className={`${styles.Container} mb-3`} controlId="title">
-        <Form.Label className={styles.FontLabel}>Preffered Camera</Form.Label>
+      {/* Form For Uploading the Image */}
+      {/* Title */}
+      <Form.Group className="mb-3 mt-3" controlId="title">
+        {/* Preferred Camera Type  */}
+        <Form.Label className={styles.FontLabel}>Preferred Camera</Form.Label>
         <Form.Select
           value={camera_type}
           name="camera_type"
@@ -109,6 +108,7 @@ const ProfileEditForm = () => {
           <option value="compact_digital_camera">Compact Digital Camera</option>
           <option value="smartphone">Smartphone</option>
         </Form.Select>
+        {/* The Bio */}
         <Form.Label className={styles.FontLabel}>Bio</Form.Label>
         <Form.Control
           as="textarea"
@@ -118,7 +118,7 @@ const ProfileEditForm = () => {
           rows={7}
         />
       </Form.Group>
-
+      {/* The Error andler for Invalid Content */}
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
@@ -137,21 +137,30 @@ const ProfileEditForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={styles.Container}>
+        <Col
+          className={`${styles.Container} py-2 p-0 p-md-2 text-center`}
+          md={6}
+        >
+          <Container>
+            {/* The user Image */}
             <Form.Group>
               {image && (
                 <figure>
                   <Image src={image} fluid />
                 </figure>
               )}
+              {/* The error for invalid image selected */}
               {errors?.image?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>
               ))}
               <div>
-                <Form.Label className={`${btnStyles.ButtonBlue} btn my-auto`} htmlFor="image-upload">
+                {/* Button for changing the image */}
+                <Form.Label
+                  className={`${btnStyles.ButtonBlue} btn my-auto`}
+                  htmlFor="image-upload"
+                >
                   Change the image
                 </Form.Label>
               </div>
@@ -174,8 +183,12 @@ const ProfileEditForm = () => {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
-          <Container className={appStyles.Content}>{textFields}</Container>
+        <Col md={1}></Col>
+        <Col
+          md={5}
+          className={`${styles.Container} d-none d-md-block p-0 p-md-2 text-center`}
+        >
+          <Container>{textFields}</Container>
         </Col>
       </Row>
     </Form>

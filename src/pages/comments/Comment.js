@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -47,10 +47,12 @@ const Comment = (props) => {
     <div className={styles.CommentSection}>
       <Row>
         <Col lg={1}>
+          {/* Profile Image Of Commenter */}
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} />
           </Link>
         </Col>
+        {/* Updated at of Comment */}
         <Col className={styles.Owner} lg={3}>
           {owner}{" "}
           <span className={styles.Updated}>
@@ -58,6 +60,7 @@ const Comment = (props) => {
             {updated_at}
           </span>
         </Col>
+        {/* Content of the comment */}
         <Col lg={7}>
           {showEditForm ? (
             <CommentEditForm
@@ -72,6 +75,7 @@ const Comment = (props) => {
             <p>{content}</p>
           )}
         </Col>
+        {/* If the user is signed in, Edit and Delete of comment, option */}
         <Col lg={1}>
           {is_owner && !showEditForm && (
             <MoreDropdown

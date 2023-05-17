@@ -24,7 +24,7 @@ import { setTokenTimestamp } from "../../utils/utils";
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
-  useRedirect('loggedIn');
+  useRedirect("loggedIn");
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -57,6 +57,7 @@ const SignInForm = () => {
         <Container className={`${appStyles.Content} p-4 `}>
           <h1>Sign In</h1>
           <hr />
+          {/* Form For Sign In */}
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
               <Form.Control
@@ -68,11 +69,13 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {/* Username Error handling */}
             {errors.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
             ))}
+            {/* Password Input */}
             <Form.Group className="mb-3" controlId="password">
               <Form.Control
                 type="password"
@@ -83,6 +86,7 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {/* Password Error handling */}
             {errors.password?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}

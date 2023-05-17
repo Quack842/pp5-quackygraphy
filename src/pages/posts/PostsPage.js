@@ -35,7 +35,9 @@ function PostsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* Show Popular profiles */}
         <PopularProfiles mobile />
+        {/* The Search Control */}
         <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}></i>
         <Form
           className={styles.SearchBar}
@@ -52,6 +54,7 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
+              // If the search results come back with info
               <InfiniteScroll
                 children={posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
@@ -62,19 +65,22 @@ function PostsPage({ message, filter = "" }) {
                 next={() => fetchMoreData(posts, setPosts)}
               />
             ) : (
+              // If there is no results in the search
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
               </Container>
             )}
           </>
         ) : (
+          // While the content is loading, this spinner will play
           <Container className={appStyles.Content}>
             <Asset spinner />
           </Container>
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles/>
+        {/* Shows all the popular profiles */}
+        <PopularProfiles />
       </Col>
     </Row>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import {Form, InputGroup} from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 
 import styles from "../../assets/styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../assets/styles/Buttons.module.css";
@@ -44,6 +44,7 @@ function CommentCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+          {/* User Profile picture */}
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
@@ -56,6 +57,7 @@ function CommentCreateForm(props) {
             rows={2}
           />
         </InputGroup>
+        {/* Post Button */}
       </Form.Group>
       <button
         className={`${btnStyles.Button} btn d-block ms-auto mt-1 me-3`}

@@ -91,9 +91,8 @@ function PostEditForm() {
   };
 
   const textFields = (
-    <div className={`${styles.Container} text-center`}>
-      {/* Form For Uploading the Image */}
-
+    // Form For Uploading the Image
+    <div className="text-center">
       {/* Title */}
       <Form.Group className="mb-3" controlId="title">
         <Form.Label className={styles.FontLabel}>Text</Form.Label>
@@ -199,10 +198,8 @@ function PostEditForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row className={styles.Row}>
-        <Col className="py-2 p-0 p-md-2" md={7} sm={12}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
+        <Col className={`${styles.Container} py-2 p-0 p-md-2`} md={6}>
+          <Container>
             <Form.Group className="text-center">
               <figure>
                 <Image className={appStyles.FillerImage} src={image} rounded />
@@ -215,6 +212,7 @@ function PostEditForm() {
                   Change the Image
                 </Form.Label>
               </div>
+              {/* Display is set to none because there is no need to have a button and the control */}
               <Form.Control
                 className="d-none"
                 id="image-upload"
@@ -232,7 +230,8 @@ function PostEditForm() {
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
-        <Col md={5} sm={12} className="d-none d-md-block p-0 p-md-2">
+        <Col md={1}></Col>
+        <Col md={5} className={`${styles.Container} d-none d-md-block p-0 p-md-2`}>
           <Container>{textFields}</Container>
         </Col>
       </Row>
