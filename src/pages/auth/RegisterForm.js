@@ -1,8 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DuckyImage from "../../assets/images/duck-img-3.jpg";
-import { Overlay, Tooltip } from "react-bootstrap";
-import ReactPasswordChecklist from "react-password-checklist";
 
 import styles from "../../assets/styles/SignInRegister.module.css";
 import btnStyles from "../../assets/styles/Buttons.module.css";
@@ -19,10 +17,9 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import PasswordStrengthBar from "react-password-strength-bar";
 
 const RegisterForm = () => {
-  const [show, setShow] = useState(false);
-  const target = useRef(null);
 
   // Controls where user have access to depending on Log in status
   useRedirect("loggedIn");
@@ -90,6 +87,12 @@ const RegisterForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {/* Password strength Checker Bar */}
+            <PasswordStrengthBar 
+              password={password1}
+              minLength={8}
+              barColors={["#ddd", "#b20000", "#af00b2", "#0900b2", "#00b24d"]}
+            />
             {errors.password1?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
@@ -111,33 +114,6 @@ const RegisterForm = () => {
                 {message}
               </Alert>
             ))}
-            {/* This is The hint button */}
-            <Form.Group>
-              <Form.Label ref={target} onClick={() => setShow(!show)}>
-                <i className="fa-solid fa-circle-question"></i> Click for
-                Hint (Click Again to Close)
-              </Form.Label>
-
-              <Overlay target={target.current} show={show} placement="bottom">
-                {(props) => (
-                  <Tooltip id="overlay-example" {...props}>
-                    <ReactPasswordChecklist
-                      rules={[
-                        "minLength",
-                        "specialChar",
-                        "number",
-                        "capital",
-                        "match",
-                      ]}
-                      minLength={8}
-                      value={password1}
-                      valueAgain={password2}
-                      onChange={(isValid) => {}}
-                    />
-                  </Tooltip>
-                )}
-              </Overlay>
-            </Form.Group>
             <Button type="submit" className={btnStyles.Button}>
               Register
             </Button>
