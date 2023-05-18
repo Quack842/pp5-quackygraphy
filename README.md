@@ -8,75 +8,60 @@ You can View the Live website [By Clicking Here!](https://pp5-quackygraphy-app.h
 
 ## Table of Contents
   1. [Project Goals](#project-goals)
-  2. [User Experience](#user-experience)
-        - [Target Audience](#target-audience)
-        - [User Requirements and Expectations](#user-requirements-and-expectations)
-        - [User Stories](#user-stories)
-        - [Site Owner Stories](#site-owner-stories)
-  3. [Technical Design](#technical-design)
-      1. [Agile Design](#agile-design)
-      2. [CRUD Functionality](#crud-functionality)
-      3. [Colours](#colours)
-      4. [Fonts](#fonts)
-      5. [Wireframes](#wireframes)
-  4. [Technologies Used](#technologies-used)
-      1. [Coding Languages](#coding-languages)
-      2. [Frameworks and Tools](#frameworks-and-tools)
-      3. [Libraries](#libraries)
-  5. [Front-End](#front-end)
-      1. [React](#react)
-  6. [Back-End API](#back-end-api)
-      1. [Django REST Framework](#django-rest-framework)
-  7. [Features](#features)
-  8. [Future features / improvements](#future-features--improvements)
-  9. [Validation](#validation)
-      1. [HTML](#html-validation)
-      2. [CSS](#css-validation)
-      3. [ESLint JavaScript JSX Validation](#eslint-javascript-jsx-validation)
-      4. [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse-validation)
-      5. [WAVE Validation](#wave-validation)
-  10. [Testing](#testing)
-      1. [Device Testing](#device-testing)
-      2. [Browser Compatibility](#browser-compatibility)
-      3. [Manual Testing](#manual-testing)
-  11. [Bugs](#bugs)
-  12. [Deployment](#deployment)
-      1. [Heroku](#heroku)
-      2. [Forking GitHub Repo](#forking-the-github-repository)
-      3. [Clone a GitHub Repo](#clone-a-github-repository)
-  13. [Credits](#credits)
-      1. [Tutorial](#tutorials)
-      2. [Code](#code)
-      3. [Literature](#literature)
-      4. [Misc](#misc)
-  14. [Acknowledgements](#acknowledgements)
+  1. [User Experience](#user-experience)
+      - [Target Audience](#target-audience)
+      - [User Requirements and Expectations](#user-requirements-and-expectations)
+      - [User Stories](#user-stories)
+      - [Site Owner Stories](#site-owner-stories)
+  1. [Technical Design](#technical-design)
+      - [Colours](#colors)
+      - [Fonts](#fonts)
+      - [Wireframes](#wireframes)
+  1. [Technologies Used](#technologies-used)
+      - [Coding Languages](#coding-languages)
+      - [Frameworks and Tools](#frameworks-and-tools)
+      - [NPM Packages / Dependencies](#npm-packages--dependencies)
+  1. [Features](#features)
+  1. [Future features / improvements](#future-features--improvements)
+  1. [Validation](#validation)
+      - [HTML](#html-validation)
+      - [CSS](#css-validation)
+      - [ESLint JavaScript JSX Validation](#eslint-javascript-jsx-validation)
+      - [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse-validation)
+      - [WAVE Validation](#wave-validation)
+  1. [Testing](#testing)
+      - [Device Testing](#device-testing)
+      - [Browser Compatibility](#browser-compatibility)
+      - [Manual Testing](#manual-testing)
+  1. [Bugs](#bugs)
+  1. [Deployment](#deployment)
+      - [Heroku](#heroku)
+      - [Forking GitHub Repo](#forking-the-github-repository)
+      - [Clone a GitHub Repo](#clone-a-github-repository)
+  1. [Credits](#credits)
+      - [Tutorial](#tutorials)
+      - [Code](#code)
+      - [Literature](#literature)
+      - [Misc](#misc)
+  1. [Acknowledgements](#acknowledgements)
 
-## Project Goals
+# Project Goals
 
 The Goal of this project was to build a Social Media Platform based website so users can upload their best shot pictures they have taken with their professional cameras, or even their smartphone! The user can show which camera they used and what category the shot was based on.
 
-The key functionality of the Website:
+<u>The key functionality of the Website:</u>
 
 - The website should be simple and easy to navigate across all the pages.
 - User Authentication so users can't edit other users profiles, posts and comments.
-- User interaction via tasks, comments and packs
-- User's to have their own profiles with brief description, profile image and tab group consisting of their owned tasks, packs and other users tasks which they have been assigned
-- CRUD functionality for task, comments, packs and their profile
-- Tasks filtering by keyword search, new tasks and high priority tasks
+- User interaction via posts, comments and profiles
+- Users to have their own profiles with a brief description, profile image and their preferred camera that they like to use.
+- CRUD functionality for posts, comments and their profile.
+- Posts can be filtering by keyword search of profile name, camera_type and photo_type
 - Responsiveness to allow pleasant usage of the app across a range of devices with varying display sizes
 
+# User Experience
 
-## User Experience
-
-### Target Audience
-
-- People who would like help with completing a task
-- People who would like to keep track of outstanding tasks they may have
-- People who are looking for some tasks to help others with
-
-
-### User Requirements and Expectations
-
+## User Requirements and Expectations
 - A site which provides a high level of interactiveness between users
 - Links and functions to act as expected
 - Notification to provide feedback on expected function outcomes
@@ -84,283 +69,129 @@ The key functionality of the Website:
 - Accessibility for impaired users
 - Responsiveness to allow pleasant use across devices of different screen sizes 
 
+## User Stories
+[Back to top ⇧](#quackygraphy---a-platform-for-sharing-your-masterpiece-shots) <br />
+[Table Of Contents ⇧](#table-of-content)
 
+I have included links to the [GitHub Issues](https://github.com/Quack842/pp5-quackygraphy/issues) for this project, as well as the [KANBAN board](https://github.com/users/Quack842/projects/4). There are multiple Coloumns that I added other than the default "Todo", "In Progress" and "Done" and their reason/uses are as follow:
+ 1. Maybe Add
+    - Ideas I got while creating the app I would put in this coloumn. Or Ideas that people have suggested afterwards. The issues places in this column was not a priority and I could work on these after I had time.
+2. Buggy
+    - This Column was created so I can log any errors or bugs to this issue that I have noticed or what other people have noticed while testing the site for me.
+3. Dropped
+    - This Column was created for the features I thought I wanted to add, but at the end of the project, decided to drop the issue. Some of the Issues that was also added at the "Maybe Add" was moved to the "Dropped" column.
 
-### User Stories
+![User Stories](/docs/readme/user-stories.png)
 
-1. As a new user, I can register an account with Tick It so that I can become a member and use the app as intended.
-2. As a user, I can use the navigation bar so that I can seamlessly navigate around the app.
-3. As a user, I can see visual indicators for example of having watched / unwatched a task so that I can tell what my status of watching is.
-4. As a user, I can watch and unwatch tasks so that I can keep up to date with that particular task via a filtered list.
-5. As a user, I can view a list of my watched tasks so that I can focus on content I wish to view.
-6. As a user, I can use the search bar on the Task list section so that I can find particular tasks easier.
-7. As a user, I can delete my tasks so that I can permanently remove tasks I do not wish to keep.
-8. As a user, I can edit my tasks so that I can correct spelling mistakes I may have entered into the task information fields.
-9. As a user, I can view task comments so that I can obtain more information on the task in question.
-10. As a user, I can comment on other tasks so that I can interact with other users.
-11. As a user, I can edit or delete my comment on a task incase of input error.
-12. As a user, I can manage my tasks so that I can add, edit or delete tasks as needed.
-13. As a user, I can request a password so that I can log back into my account if I have forgotten my password.
-14. As a user, I can log in so that I can access my account, view my profile, tasks and other user's tasks.
-15. As a user, I can log out so that other users using the same device cannot access my account.
-16. As a user, I can have a profile page so that I and other users can view my list of tasks, packs and assigned tasks.
-17. As a user, I can update my profile so that my profile can stay up to date with my latest information.
-18. As a user, I can add a profile picture so that other members can easily recognize my tasks or comments.
-19. As a user, I can view the Home Page so that I can understand what the website is about, create an account or log in.
-20. As a user, I can display basic info on my profile page so that other members can learn more about me.
-21. As a user, I can search for tasks via a task list or search bar so that I can find specific tasks.
-22. As a user, I can fill in a contact form so that I can enquire about issues I may have regarding the app.
-23. As a user, I can receive feedback so that I can confirm whether the contact form submission was successful or not.
-24. As a user, I can scroll through the latest tasks on the app so that I can find new tasks to complete.
-25. As a user, I can browse a list of user accounts so that I can view that particular account.
-26. As a user, I can create tasks so that I can partake in the main purpose of the site.
-27. As a user, I can create packs so that I can group tasks together.
-28. As a user, I can delete my packs so that I can permanently remove packs I do not wish to keep.
-29. As a user, I can edit my packs so that I can correct spelling mistakes or I may have entered into the pack information fields.
-
-### Site Owner Stories
-
+## Site Owner Stories
 30. As the site owner, I would want to validate users' data entries on sign up so that users can create a log in which meets the requirements.
 31. As the site owner, I would want to ensure only logged in users can post from their account and edit their profile so that data privacy is ensured.
-32. As the site owner, I would want to have the ability to remove tasks and task comments so that I can keep the app clean and friendly.
+32. As the site owner, I would want to have the ability to remove posts and posts comments so that I can keep the app clean and friendly.
 33. As the site owner, I would want the site to be fully responsive so that users can use it across multiple devices and create a good user experience.
-34. As the site owner, I would want to use the app search function so that I can search for particular tasks by their title.
-35. As the site owner, I would want a 404 error page so that users do not have to use the back navigation button if an error occurs.
- 
+34. As the site owner, I would want to use the app search function so that I can search for particular post by their title, camera_type, photo_type and Username.
 
+# Technical Design
+[Back to top ⇧](#quackygraphy---a-platform-for-sharing-your-masterpiece-shots) <br />
+[Table Of Contents ⇧](#table-of-content)
 
-##### Back to [top](#tick-it)
+## Colors
+The Color Scheme was based of the Main Dukky Icon. I started with the Yellow and used [Coolers Palette generator](https://coolors.co/) to generate complementary colors.
 
+![Color Scheme](/docs/readme/color-scheme.png)
 
-## Technical Design
+## Fonts
+Google Fonts were implemented on the website and [FontJoy](https://fontjoy.com/) was used to generate compatible fonts that will work well together.
+- Coiny - Used for importand text and Big Fonts
+- Shadows Into Light - For Big Main Fonts (To make a statement)
+- Varela Round - Was used for all other fonts
 
-### Agile Design
+## Wireframes
+CorelDraw was used to create wireframes of the sites pages, as I am personally more use to using This application.
+After starting with the website, I made a few changes like the design but the color scheme and base design stayed the same more or less. There wasn't really a design for the mobile devices, but It was kept in mind while development. The design for the comment section also came to me while developing the website, I knew that I wanted to have a chat bubble effect that changes color for every second comment. This was the final design for the comments:
 
-An Agile approach to creating this app has been applied. GitHub's projects was used to track user stories and implement ideas based on their level of importance for allowing use of the app with no loss of functionality or user experience. Three categories were created indicating their level of importance, those were:
-- MUST HAVE
-- SHOULD HAVE
-- COULD HAVE
-
-By using AGILE methodology in this project I was able to deliver a site which had all required functionality and some more. Due to the time limit on this project I was not able to incorporate all initial listed features, but this is where an AGILE approach is great for app design. The project displays this by having User stories in the Done section and the ones which were decided to be left for future, put in the future implementations section of the readme.
-
-The GitHub project can be found [here](https://github.com/users/jkingportfolio/projects/9)
-
-### CRUD Functionality
-
-Tick It handles data with full CRUD Functionality:
-<br>
-- Create -  Users can create, an account, profile, tasks, comments, packs, contact messages and watch objects.
-- Read - Users can view the tasks, comments, packs of other users and also the profiles of these users.
-- Update - Users can update their profile, password, posted tasks, packs and watch status of tasks via the interactive forms and buttons on the site.
-- Delete - Users can delete tasks, comments, packs and watch objects via the interactive buttons on the site.
-
-### Colours
-
-The colour scheme for this application was kept minimal with a monochromatic theme kept in mind. 
-
-<details>
-<summary>Colours</summary>
-<img src="docs/readme/colours.png">
-</details>
-
-
-### Fonts
-
-Google Fonts were implemented on the website. 'Josefin Sans' with a back up of sans-serif was decided as the ideal font for the site.
-
-### Wireframes
-
-Balsamiq was used to create wireframes of the sites pages
+![Comments Section](/docs/wireframes/comment-section.png)
 
 <details>
 <summary>Wireframes</summary>
-<img src="docs/wireframes/wireframe-home-not-signed-in.png">
-<img src="docs/wireframes/wireframe-home-signed-in.png">
-<img src="docs/wireframes/wireframe-sign-up.png">
-<img src="docs/wireframes/wireframe-log-in.png">
-<img src="docs/wireframes/wireframe-task-list.png">
-<img src="docs/wireframes/wireframe-task-detail.png">
-<img src="docs/wireframes/wireframe-watched-list.png">
-<img src="docs/wireframes/wireframe-pack-list.png">
-<img src="docs/wireframes/wireframe-pack-detail.png">
-<img src="docs/wireframes/wireframe-create-task.png">
-<img src="docs/wireframes/wireframe-edit-task.png">
-<img src="docs/wireframes/wireframe-create-pack.png">
-<img src="docs/wireframes/wireframe-edit-pack.png">
-<img src="docs/wireframes/wireframe-profile.png">
-<img src="docs/wireframes/wireframe-edit-profile.png">
-<img src="docs/wireframes/wireframe-users.png">
-<img src="docs/wireframes/wireframe-contact.png">
-<img src="docs/wireframes/wireframe-update-password.png">
+
+## Register Page
+![Register Page](/docs/wireframes/register-page.png)
+## Login Page
+![Login Page](/docs/wireframes/login-page.png)
+## Home Page
+![Home Page](/docs/wireframes/home-page.png)
+## Add Post Page
+![Add Post Page](/docs/wireframes/add-post.png)
+## Liked Page
+![Liked Page](/docs/wireframes/liked-page.png)
+## Account/Profile Page
+![Account/Profile Page](/docs/wireframes/account-page.png)
+## Edit Profile Page
+![Edit Profile Page](/docs/wireframes/edit-profile.png)
+## Edit Password Page
+![Edit Password Page](/docs/wireframes/edit-password.png)
+## Edit Username Page
+![Edit Username Page](/docs/wireframes/edit-username.png)
 
 </details>
 
-##### Back to [top](#tick-it)
+# Technologies Used
 
-
-## Technologies Used
-
-### Coding Languages
+## Coding Languages
 
 - HTML
 - CSS
 - Javascript
-  - React (17.0.2)
+- React
 
-### Frameworks and Tools
+## Frameworks and Tools
 
 - [Axios](https://axios-http.com/docs/intro) - Axios is a Promise API. Justification: I used axios to send API requests from the React project to the API and avoid any CORS errors when sending cookies.
 - [JWT](https://jwt.io/) - Library to decode JSON Web token. Justification: I used JWT to securely transmit data and to have the ability to verify that the content has not been tampered with.
-- [React 17](https://17.reactjs.org/) - JavaScript library for building user interfaces. Justification: To be able to showcase my newly learnt skills and for building interactive user interfaces quickly.
-- [React-Bootstrap 1.6.3](https://react-bootstrap-v4.netlify.app/) - CSS framework. Justification: I used Bootstrap React library for UI components, styling and responsiveness.
+- [React 18](https://react.dev/blog/2022/03/29/react-v18) - JavaScript library for building user interfaces. Justification: To be able to showcase my newly learnt skills and for building interactive user interfaces quickly.
+- [React-Bootstrap 2.7.2](https://react-bootstrap.github.io/) - CSS framework. Justification: I used Bootstrap React library for UI components, styling and responsiveness.
 - [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) - React library. Justification: I used this component to load content (tasks/comments/users) automatically as the user scrolls towards the bottom of the page without having to jump to next/previous page.
-- [React Router](https://v5.reactrouter.com/web/guides/quick-start) - Javascript framework for routing. Justification: I used this library to enable navigation between views of components and to have the ability to control what is presented to the user based on the URL they have accessed in the browser. 
-- [React ChartJS2](https://react-chartjs-2.js.org/) - React Library. Justification: I used this component for producing the doughnut chart on the main page. 
-- [React Multi Select Component](https://www.npmjs.com/package/react-multi-select-component) - React Library. Justification: I used this component to have the ability to select multiple tasks to assign to a pack.
-
-- [Am I Responsive](http://ami.responsivedesign.is/) - Website responsive test site. Justification: I used this to create the multi-device mock-up at the top of this README.md file
-- [Balsamiq](https://balsamiq.com/) - Mock up software. Justification: I used this to create the projects wireframes
-- [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/) - Developer tool. Justification: I used this for debugging of the code and checking site for responsiveness
-- [Cloudinary](https://cloudinary.com/) - File storage. Justification: I used this to store static files
-- [Font Awesome](https://fontawesome.com/) - Icon library. Justification: I used this to style the site with icons.
-- [Google Fonts](https://fonts.google.com/) - Font library. Justification: I used this to import fonts
-- [Git](https://git-scm.com/) - Version control system. Justification: I used this for version control and to push the code to GitHub
-- [GitHub](https://github.com/) - Cloud based hosting service. Justification: I used this as a remote repository to store project code
-- [Gitpod](https://gitpod.io) - Cloud development environment. Justification: I used this to host a virtual workspace
-- [Microsoft Paint](https://apps.microsoft.com/store/detail/paint/9PCFS5B6T72H) - Graphics editor. Justification: I used this to edit the images for testing user stories.
-- [Affinity Designer](https://affinity.serif.com/en-gb/designer/) - Graphics editor. Justification: I used this to create the 404 and no search results images.
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start) - Javascript framework for routing. Justification: I used this library to enable navigation between views of components and to have the ability to control what is presented to the user based on the URL they have accessed in the browser.
+- [Am I Responsive](http://ami.responsivedesign.is/) - Website responsive test site. I used this to create the multi-device mock-up at the top of this README.md file
+- [CorelDraw](https://www.coreldraw.com/en/?link=wm) - Designers Application. I used this to create the projects wireframes
+- [Chrome dev tools](https://developers.google.com/web/tools/chrome-devtools/) - I used this for debugging of the code and checking site for responsiveness
+- [Cloudinary](https://cloudinary.com/) - File storage. I used this to store static files
+- [Font Awesome](https://fontawesome.com/) - Icon library. I used this to style the site with icons.
+- [Google Fonts](https://fonts.google.com/) - Font library. I used this to import fonts
+- [GitHub](https://github.com/) - Cloud based hosting service. I used this as a remote repository to store project code
+- [Gitpod](https://gitpod.io) - Cloud development environment. I used this to host a virtual workspace
+- [Code Anywhere](https://codeanywhere.com/) - Cloud development environment, it is simular to Gitpod. Used this when my credits ran out on GitPod
+- [VS Code](https://code.visualstudio.com/) A Source Editor. When Code Anywhere failed me (Like many others) I decided to move all mo code to VS Code.
 - Validation:
-  - [WC3 Validator](https://validator.w3.org/) - HTML Validator. Justification: I used this to validate the applications HTML code
-  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) - CSS Validator. Justification: I used this to validate the applications CSS code
-  - [ESLint](https://eslint.org/) - JavaScript Validator. Justification: I used this to validate applications JSX code
-  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) Site auditing tool. Justification: I used this to validate performance, accessibility, best practice and SEO of the application
-  - [Wave](https://wave.webaim.org/) - Site accesibility auditor. Justification: I used this to evaluate the applications accessibility
+  - [WC3 Validator](https://validator.w3.org/) - HTML Validator. I used this to validate the applications HTML code
+  - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) - CSS Validator. I used this to validate the applications CSS code
+  - [ESLint](https://eslint.org/) - JavaScript Validator. I used this to validate applications JSX code
+  - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) Site auditing tool. I used this to validate performance, accessibility, best practice and SEO of the application
+- [Gif Creator](https://imgflip.com/gif-maker) This website was used to make my image, that is on the "Page not Found", from 3 png images to 1 gif image.
+- [Background Generator](https://app.haikei.app/) This website was used to generate the page background and the button's backgrounds.
+- [CSS Box Shadow Generator](https://cssgenerator.org/box-shadow-css-generator.html) This website was used to generate a box shadow that was used through out the code.
+- [StackOverflow](https://stackoverflow.com/) This website was used to help fix bug and errors that showed up during development.
 
-### Libraries
+## NPM Packages / Dependencies
+There was a few dependencies that was installed during development, but was not used because I changed my mind on the feature.
 
-#### Installed Libraries
-
-| Package       | Version        |
-| ------------- | ------------- |
-| axios |1.3.4 |
-| bootstrap | 4.6.0 |
-| jwt-decode | 3.1.2 |
-| react-bootstrap | 1.6.3 |
-| react-chartjs-2 | 3.0.4 |
-| react-dom | 17.0.2 |
-| react-infinite-scroll-component |6.1.0 |
-| react-multi-select-component | 4.3.4|
-| react-router-dom | 5.3.0 |
-| react-scripts | 5.0.1 |
-| react-scroll | 1.8.9|
-
-
-##### Back to [top](#tick-it)
-
-
-## Front-End
-
-### React
-
-The React.js framework is an open-source JavaScript framework and library developed by Jordan Walke, a software engineer at Meta. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code than you would with vanilla JavaScript  
-
-I used React for this application for several reasons:
-
- - Flexibility – Due to having a modular structure React code is easier to maintain compared to other front-end frameworks.
-
- - Speed – Creating sites/apps with React significantly increases the page loading speed as the entire page does not require to refresh and reload all components. Components are updated dynamically thus reducing the wait and load times, which affects user experience.
-
- - React Bootstrap - When used for styling and responsiveness React Bootstrap is a great choice as it comes with ready-to-use React built components thus taking away alot of need to create commonly used code from scratch.
-
-- It is the most widely used library for developing social networking and media content applications - Sites such as Meta (formerly Facebook), Instagram, Netflix, Airbnb are all made with React.
-
-- Reusability of components – Components can be created and re used throughout the app with no need to re write code for the same features.
-
-There were various components created and reused across this application.
-
-- `<Asset />` - multi purpose component, used to display a range of items due to being passed props. Those include a loading gif, image with source and alt attribute or a message consisting of a paragraph.
-  - Used in user story: 21, 24 & 25
-
-- `<Avatar />` - resuable component, used to display the relevant user profile picture. This component uses props which can specify the source of the image and also its size, an example of this components re-use ability is the image size on the profile page being bigger than that of the one in the Nav Bar yet it is the same component and source image used.
-  - Used in user story: 18
-
-- `<DropDown />` - resuable component, used to display the three dots option button based on the required rights of the user and the item in question for example if a user is on their own profile the drop down to edit the profile will appear, however this will not be the case when viewing other users profile pages. 
-  - Used in user story: 7, 8, 11, 12, 17, 28, 29, 30 & 31
-
-- `<HighPriorityTasks />` - specific component, used to display a filtered result of all task with the priority status of HIGH.
-  - Used in user story: 24
-
-- `<NavBar />` - resuable component, used for easy navigation of the site. This component is re usable as it will display different icons based on a users logged in status. If no user is logged in a log in, sign up and contact icon will be available however if a user is currently logged in, the full range of icons will be available apart from log in.
-  - Used in user story: 2
-
-- `<PageNotFound />` - specific component, used to display a 404 page made up of an image file and return home button for when the page does not exist.
-  - Used in user story: 34
-
-- `<PasswordCriteria />` - specific component, used to display the validation criteria needed for a valid password entry.
-  - Used in user story: 30
-
-- `<ScrollToTop />` - specific component, used to produce a button that will show when the user reaches the bottom of the page, this will allow the user to quickly return to the top of the page without the need for scrolling.
-  - Used in user story: 24
-
-- `<TaskCompleteFilter />` - specific component, used to display a filtered result of all task with the complete status of incomplete or in-progress.
-  - Used in user story: - This component is an extra feature
-
-- `<TaskDoughnutChart />` - specific component, used to display a doughnut chart of all tasks completion status providing an easy visual indication of the tasks status.
-  - Used in user story: N/A - This component is an extra feature
-
-- `<TaskStatusTable />` - specific component, used to display a numbered table of all tasks completion status providing an easy visual indication of the tasks status.
-  - Used in user story: N/A - This component is an extra feature
-
-There were various pages created and used in this application
-
-- auth - The auth page group consisted of the following files:
-	- LoginForm.js - This file handles the Login form
-	- SignUpForm.js - This file handles the Sign up form
-
-- comments - The comments page group consisted of the following files:
-	- Comment.js - This file returns the comments
-	- CommentEditForm.js - This file handles the Comment Edit form
-	- CommentForm.js - This file handles the create comment form
-
-- contact - The contact page group consisted of the following files:
-	- ContactForm.js - This file handles the contact form
-
-- dashboard - The dashboard page group consisted of the following file:
-	- Dashboard.js - This file returns the auth users main page (dashboard)
-
-- landing - The landing page group consisted of the following file:
-	- Landing.js - This file returns the main page to an anonymous user
-
-- packs - The packs page group consisted of the following files:
-	- Pack.js - This file returns the Pack and all its related info
-	- PackCreateForm.js - This file handles the Pack create form 
-	- PackDetail.js - This file returns the pack detail
-	- PackEditForm.js - This file handles the Pack edit form
-	- PackListings.js - This file returns the list of packs
-
-- profiles - The profiles page group consisted of the following files:
-	- EditPasswordForm.js - This file handles the Edit Password form
-	- EditProfileForm.js - This file handles the edit profile form
-	- Profile.js - This file returns the profile section
-	- ProfilePage.js - This file returns the entire Profile page
-	- UserProfiles.js - This file returns all users of the site
-
-
-- tasks - The tasks page group consisted of the following files:
-	- Task.js - This file returns the Task and all its related info
-	- TaskCreateForm.js - This file handles the Task create form 
-	- TaskDetail.js - This file returns the task detail
-	- TaskEditForm.js - This file handles the Task edit form
-	- TasksListings.js - This file returns the list of Tasks
-
-## Back-End API
-
-### Django REST Framework
-
-The API for this Front-End application was built with the Django REST Framework. The repository with a README file for the DRF Back-End can be found [here](https://github.com/jkingportfolio/CI_PP5_Tick_It_drf_api).
-
-##### Back to [top](#tick-it)
-
+| Package | Version | Used |
+| --- | --- |---
+| axios |1.3.6 | ![Check](/docs/readme/check.svg)
+| bootstrap | 5.2.3 | ![Check](/docs/readme/check.svg)
+| jwt-decode | 3.1.2 | ![Check](/docs/readme/check.svg)
+| emoji-picker-react | 3.1.2 | ![Nope](/docs/readme/nope.svg)
+| react-bootstrap | 1.6.3 | ![Check](/docs/readme/check.svg)
+| react | 18.2.0 |![Check](/docs/readme/check.svg)
+| react-dom | 18.2.0 |![Check](/docs/readme/check.svg)
+| react-infinite-scroll-component | 6.1.0 |![Check](/docs/readme/check.svg)
+| react-infinite-scroller | 1.2.6 | ![Nope](/docs/readme/nope.svg)
+| react-loader-spinner | 5.3.4 |![Check](/docs/readme/check.svg)
+| react-password-checklist | 1.4.3 | ![Nope](/docs/readme/nope.svg)
+| react-password-strength-bar | 0.4.1 |![Check](/docs/readme/check.svg)
+| react-router-dom | 6.10.0 |![Check](/docs/readme/check.svg)
+| react-scripts | 5.0.1 |![Check](/docs/readme/check.svg)
+| web-vitals | 2.1.4 |![Check](/docs/readme/check.svg)
 
 ## Features
 
