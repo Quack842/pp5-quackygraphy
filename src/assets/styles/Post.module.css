@@ -46,7 +46,7 @@ h5 {
 }
 
 .Text {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: small;
 }
 
@@ -54,4 +54,19 @@ h5 {
     font-family: 'Shadows Into Light', cursive;
     font-size: 1.3rem;
     font-weight: bolder;
+}
+
+.ModalHeader {
+    font-family: 'Inknut Antiqu';
+    background: linear-gradient(180deg, rgba(199, 0, 0, 0.84) 0%, rgba(255, 86, 86, 0.831) 100%);
+}
+
+.Toast {
+    position: fixed;
+    top: 10vh;
+    right: 1%;
+    z-index: 100;
+    margin: auto;
+    text-align: center;
+    background: radial-gradient(circle, rgba(0, 91, 77, 0.405) 0%, rgba(0, 82, 110, 0.526) 35%, rgba(24, 0, 158, 0.659) 77%, rgba(3, 0, 160, 0.579) 100%);
 }

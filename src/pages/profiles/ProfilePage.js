@@ -33,6 +33,13 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
 
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+  // This will remove the "_" in the posted data and replace it with a space
+  const formatType = (type) => {
+    if (type) {
+      return type.replace("_", " ");
+    }
+    return "";
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -85,7 +92,7 @@ function ProfilePage() {
             <Col xs={12}>
               {/* Favourite Camera type, when applicable */}
               <div className={styles.FontTitle}>Favourite Camera Type</div>
-              <div className={styles.Font}>{profile?.camera_type}</div>
+              <div className={styles.Font}>{formatType(profile?.camera_type)}</div>
             </Col>
           </Row>
         </Col>

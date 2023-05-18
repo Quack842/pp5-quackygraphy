@@ -14,7 +14,7 @@
 }
 
 .Font {
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .FontTitle {
