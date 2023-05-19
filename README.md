@@ -1,10 +1,16 @@
 # QuackyGraphy
 
 ![Responsive Image](docs/readme/responsive.png)
+---
 
 Quacky-Graphy is a social platform website where users can post their awesome Pictures they have taken with thier cameras. Users can upload their professional pictures and give details about the pictures. 
 
 You can View the Live website [By Clicking Here!](https://pp5-quackygraphy-app.herokuapp.com/)
+
+## Links to the Back-End Project
+
+- [Backend - Repository](https://github.com/Quack842/pp5-drf-api)
+- [Backend - Deployment](https://pp5-quackygraphy.herokuapp.com/)
 
 ## Table of Contents
   1. [Project Goals](#project-goals)
