@@ -646,11 +646,11 @@ If you work on a Cloud IDE like Code Anywhere or Gitpod after commiting and push
 
 - The Following StackOverflow articles helped me figure out a few problems I ran into whilst Developing:
   1. In The App.js file, the follow along tutorial used the <Switch></Switch>, but that didn't work in my Project since I use a newer version of React. This article Helped me fix that problem.
-    - https://stackoverflow.com/questions/53972254/react-router-switch-not-working-as-expected
+    - [StackOverdlow Helper 1](https://stackoverflow.com/questions/53972254/react-router-switch-not-working-as-expected)
   2. The Links used in the App.js file for the "Page Not found", didn't work following the Walkthrough. This article helped me fix the problem.
-    - https://stackoverflow.com/questions/67050966/how-to-build-a-404-page-with-react-router-dom-v6
+    - [StackOverdlow Helper 2](https://stackoverflow.com/questions/67050966/how-to-build-a-404-page-with-react-router-dom-v6)
   3. I struggled with this one for a long while, because I didn't know that the useHistory is not used in the newer version. This article was the biggest help off all! Because even the tutors tried heling but because most students keep using the older version used in the walkthough, they didn't know what was wrong ether.
-    - https://stackoverflow.com/questions/63471931/using-history-with-react-router-dom-v6 
+    - [StackOverdlow Helper 3](https://stackoverflow.com/questions/63471931/using-history-with-react-router-dom-v6)
 
 # Acknowledgements
 
