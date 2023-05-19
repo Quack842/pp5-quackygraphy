@@ -20,6 +20,7 @@ const PopularProfiles = ({ mobile }) => {
           mobile && "d-lg-none text-center mb-3"
         } text-capitalize`}
       >
+        <h3>Popular Profiles</h3>
         {mobile ? (
           // Popular Profiles on Mobile
           <div className="d-flex justify-content-around text-capitalize">

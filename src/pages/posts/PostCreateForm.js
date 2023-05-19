@@ -51,6 +51,13 @@ function PostCreateForm() {
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+      // Clear the image error message
+      setErrors((prevErrors) => {
+        return {
+          ...prevErrors,
+          image: [],
+        };
+      });
     }
   };
 
