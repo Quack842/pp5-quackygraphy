@@ -29,3 +29,14 @@
     font-family: 'Shadows Into Light', cursive;
     font-size: 1.2rem;
 }
+
+.Toast {
+    position: fixed;
+    top: 10vh;
+    right: 1%;
+    color: #ddd;
+    z-index: 100;
+    margin: auto;
+    text-align: center;
+    background: radial-gradient(circle, rgb(0, 91, 77) 0%, rgba(0, 82, 110) 35%, rgba(24, 0, 158) 77%, rgba(3, 0, 160) 100%);
+}

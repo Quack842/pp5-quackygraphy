@@ -102,7 +102,7 @@ const Comment = (props) => {
             <Modal.Title >Are You Sure!</Modal.Title>
           </Modal.Header>
           <Modal.Body className="text-align-center m-auto">
-            Are you sure you want to delete this comment? This Comment will be delete forever.
+            Are you sure you want to delete this comment? This Comment will be deleted forever.
           
           </Modal.Body>
           <Modal.Footer>

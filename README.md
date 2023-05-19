@@ -21,12 +21,11 @@ You can View the Live website [By Clicking Here!](https://pp5-quackygraphy-app.h
       - [Coding Languages](#coding-languages)
       - [Frameworks and Tools](#frameworks-and-tools)
       - [NPM Packages / Dependencies](#npm-packages--dependencies)
-  1. [Features](#features)
+  1. [Features and Pages](#features-and-pages)
   1. [Future features / improvements](#future-features--improvements)
   1. [Validation](#validation)
-      - [HTML](#html-validation)
+      - [JSX Validation](#jsx-validation)
       - [CSS](#css-validation)
-      - [ESLint JavaScript JSX Validation](#eslint-javascript-jsx-validation)
       - [Chrome Dev Tools Lighthouse](#chrome-dev-tools-lighthouse-validation)
       - [WAVE Validation](#wave-validation)
   1. [Testing](#testing)
@@ -195,7 +194,7 @@ There was a few dependencies that was installed during development, but was not 
 | react-scripts | 5.0.1 |![Check](/docs/readme/check.svg)
 | web-vitals | 2.1.4 |![Check](/docs/readme/check.svg)
 
-# Features
+# Features and Pages
 [Back to top ⇧](#quackygraphy---a-platform-for-sharing-your-masterpiece-shots) <br />
 [Table Of Contents ⇧](#table-of-content)
 
@@ -305,612 +304,194 @@ When the user is signed in, they will also have the option to follow and unfollo
 
 ## FYP (For You Page)
 
-The FYP Page can only be views if the user is signed in 
+The FYP Page can only be viewed if the user is signed in. This is the page where users can few all the posts of poeple they follow.
+<details>
+<summary>FYP (For You Page)</summary>
+
+![FYP](/docs/features/fyp.png)
+</details>
+
+## Liked Page
+
+The Liked page can only be viewed by signed in users. This page Is for users to see all the posts that that liked.  
+<details>
+<summary>Liked Page</summary>
+
+![Liked Page](/docs/features/liked-page.png)
+</details>
+
+## Profile Page
+
+The Account page is where the user (If logged in) can view and edit their profile. It is also where they can change their Username and Password. Users that Aren't Signed In can also view other profiles, but they would not be able to follow/unfollow that user.
+<details>
+<summary>Profile Page - Signed In</summary>
+
+![Profile Page Signed In](/docs/features/profile-page-logged-in.png)
+</details>
+<details>
+<summary>Other Users Page - Signed In</summary>
+
+![Other Users Page - Signed In](/docs/features/other-profile-signed-in.png)
+</details>
+<details>
+<summary>Profile Page - Edit Menu</summary>
+
+![Profile Page Edit Menu](/docs/features/profile-edit-dropdown.png)
+</details>
+<details>
+<summary>Profile Page - Edit Page</summary>
+
+![Profile Page Edit Page](/docs/features/profile-edit-page.png)
+</details>
+<details>
+<summary>Profile Page - Username Change</summary>
+
+![Profile Page Username Change](/docs/features/profile-username-edit.png)
+</details>
+<details>
+<summary>Profile Page - Password Change</summary>
+
+![Profile Page Password Change](/docs/features/profile-password-edit.png)
+</details>
+<details>
+<summary>Profile Page - Signed Out</summary>
+
+![Profile Page Signed Out](/docs/features/other-users-profiles.png)
+</details>
+
+## Posts
+
+This is where the User (Logged In) Will be able to create a post. The user will also be able to edit and delete the post, there will be a Warning Modal to ask if the user is sure they want to delete the post.
 
 <details>
-<summary>Nav Bar image</summary>
-<img src="docs/features/nav-bar.png">
+<summary>Add A Post</summary>
+
+![Add Post](/docs/features/add-post.png)
+</details>
+<details>
+<summary>Create A Post Post</summary>
+
+![Add Post](/docs/features/create-post-page.png)
+</details>
+<details>
+<summary>Edit/Delete Post Button</summary>
+
+![Add Post](/docs/features/edit-post.png)
+</details>
+<details>
+<summary>Edit Post Page</summary>
+
+![Add Post](/docs/features/edit-post-page.png)
+</details>
+<details>
+<summary>Delete Post Warning</summary>
+
+![Add Post](/docs/features/post-delete.png)
 </details>
 
-- Covered in user stories: 2
+## Comments
 
-### Profile Section
-
-Profile Section is a feature of the Tick It site giving users some personality on the platform and also grouping all their relevant information in one central point.  
+Non-Logged in users will be able to few the comments but will not be able to create, edit or delete any comments. Users that are logged in will be able to Add, Edit and Delete their own Comments. Before a comment is deleted, the user will be asked if they are surethey want to delete the comment with a pop-up modal.
 
 <details>
-<summary>Profile Section image</summary>
-<img src="docs/features/profile-section.png">
+<summary>Comment Button On Post</summary>
+
+![Comment Button](/docs/features/comment-button.png)
+</details>
+<details>
+<summary>Comment View - Non Logged In</summary>
+
+![Comment Button](/docs/features/comments-non-users.png)
+</details>
+<details>
+<summary>Comment View - Logged In User</summary>
+
+![Comment Button](/docs/features/comments-logged-user-active.png)
+</details>
+<details>
+<summary>Comment View - Logged In User - Active</summary>
+When the user start typing a comment, the "Post" button will activate.
+
+![Comment Button](/docs/features/comments-logged-user.png)
+</details>
+<details>
+<summary>Comment Edit - Edit Dropdown</summary>
+
+![Comment Button](/docs/features/comments-edit-dropdown.png)
+</details>
+<details>
+<summary>Comment - Edit</summary>
+
+![Comment Edit](/docs/features/comments-editing.png)
+</details>
+<details>
+<summary>Comment - Delete</summary>
+
+![Comment Delelte](/docs/features/comment-edit.png)
 </details>
 
-- Covered in user stories: 16 & 20
+## Posts Search
 
-### Profile Tabs
-
-Profile tabs is a feature of the Tick It site giving users the ability to view tasks, packs and tasks assigned to the user of the currently view profile.  
+This Search Feature is on the Home, FYP and Liked Pages. This feature allow the user to search for a post, or posts, my Username, Post Title, Camera Type or Photo Type.
 
 <details>
-<summary>Profile Section image</summary>
-<img src="docs/features/tabs.png">
+<summary>Search Bar - None</summary>
+
+![Search Non](/docs/features/search-non.png)
+</details>
+<details>
+<summary>Search Bar - Username</summary>
+
+![Search Username](/docs/features/search-username.png)
+</details>
+<details>
+<summary>Search Bar - Title</summary>
+
+![Search Title](/docs/features/search-title.png)
+</details>
+<details>
+<summary>Search Bar - Camera Type</summary>
+
+![Search Camera Type](/docs/features/search-camera-type.png)
+</details>
+<details>
+<summary>Search Bar - Photo Type</summary>
+
+![Search Photo Type](/docs/features/search-photo-type.png)
 </details>
 
-- Covered in user stories: 16
+## Page does not exist
 
-### Edit Profile
+When the user tried to access a page that doesn't exist, they will get a "Page Does not exist" page.
+<details>
+<summary>Page Not Found</summary>
 
-Edit Profile is a feature of the Tick It site giving users the ability to update their profile with their latest information 
+![Page Not Found](/docs/features/page-not-found.png)
+</details>
+<br/>
+
+# Validation
+[Back to top ⇧](#quackygraphy---a-platform-for-sharing-your-masterpiece-shots) <br />
+[Table Of Contents ⇧](#table-of-content)
+
+## JSX Validation
+
+The JSX code was validated during the development process and corrected as the project proceeded. 
+
+## CSS Validation
+
+I Checked the CSS syntax at the W3C CSS Validator Service and the results revealed no errors
+
+## Chrome Dev Tools Lighthouse Validation
+
+### Desktop 
+<details>
+<summary>Results</summary>
 
 <details>
-<summary>Edit Profile image</summary>
-<img src="docs/features/edit-profile-1.png">
-<img src="docs/features/edit-profile-2.png">
+<summary>Home Page</summary>
 </details>
 
-- Covered in user stories: 17 & 18
-
-### Change Password
-
-Change Password is a feature of the Tick It site giving users the ability to change their password if they so desire. 
-
-<details>
-<summary>Change Password image</summary>
-<img src="docs/features/change-password-1.png">
-<img src="docs/features/change-password-2.png">
-</details>
-
-- Covered in user stories: 13 & 17
-
-### Create task
-
-Create task is a feature of the Tick It site giving users the ability to perform the main functionality of the site which is to create a task based from a form.
-
-<details>
-<summary>Create task image</summary>
-<img src="docs/features/create-task-1.png">
-<img src="docs/features/create-task-2.png">
-<img src="docs/features/create-task-3.png">
-<img src="docs/features/create-task-4.png">
-<img src="docs/features/create-task-5.png">
-</details>
-
-- Covered in user stories: 12, 26
-
-### Delete task
-
-Delete task is a feature of the Tick It site giving users the ability to delete their owned tasks at their will. 
-
-<details>
-<summary>Delete task image</summary>
-<img src="docs/features/delete-task.png">
-</details>
-
-- Covered in user stories: 7, 12, 32
-
-### Edit task
-
-Edit task is a feature of the Tick It site giving users the ability to edit their owned tasks at their will via a form.  
-
-<details>
-<summary>Edit task image</summary>
-<img src="docs/features/edit-task.png">
-</details>
-
-- Covered in user stories: 8, 12
-
-### Task comment
-
-Task comment is a feature of the Tick It site giving users the ability to read or create comments on tasks.
-
-<details>
-<summary>Task comment image</summary>
-<img src="docs/features/task-comment.png">
-</details>
-
-- Covered in user stories: 9
-
-### Create task comment
-
-Create task comment is a feature of the Tick It site giving users the ability to create comments on tasks. This will then display in order of time create and have the users profile image and username next to it. 
-
-<details>
-<summary>Create task comment image</summary>
-<img src="docs/features/create-task-comment.png">
-</details>
-
-- Covered in user stories: 10
-
-### Edit task comment
-
-Edit task comment is a feature of the Tick It site giving users the ability to edit comments that they own and posted themselves.
-
-<details>
-<summary>Edit task comment image</summary>
-<img src="docs/features/edit-task-comment.png">
-</details>
-
-- Covered in user stories: 11
-
-### Delete task comment
-
-Delete task comment is a feature of the Tick It site giving users the ability to delete comments that they own.
-
-<details>
-<summary>Delete task comment image</summary>
-<img src="docs/features/delete-task-comment.png">
-</details>
-
-- Covered in user stories: 11, 32
-
-
-### Task list
-
-Task list is a feature of the Tick It site giving users the ability to view all tasks that have been created on the app.
-
-<details>
-<summary>Task list image</summary>
-<img src="docs/features/tasks-list.png">
-</details>
-
-- Covered in user stories: 21, 24
-
-### Task Search
-
-Task Search is a feature of the Tick It site giving users the ability to search for tasks or users via a keyword query search bar. 
-
-<details>
-<summary>Task Search image</summary>
-<img src="docs/features/search-bar-1.png">
-</details>
-
-- Covered in user stories: 21, 34
-
-### Watch / Unwatch task
-
-Watch / Unwatch task is a feature of the Tick It site giving users the ability to watch and unwatch tasks which if watched will be displayed in the users watched list, giving the user a means for keeping track of specific tasks. 
-
-<details>
-<summary>Watch / Unwatch task image</summary>
-<img src="docs/features/watch-task-1.png">
-<img src="docs/features/watch-task-2.png">
-<img src="docs/features/watch-task-3.png">
-</details>
-
-- Covered in user stories: 4
-
-### Watch / Unwatch button
-
-Watch / Unwatch button is a feature of the Tick It site giving users the ability to add or remove a watch object to a specific task.
-
-<details>
-<summary>Watch / Unwatch button image</summary>
-<img src="docs/features/watch-task-1.png">
-<img src="docs/features/watch-task-2.png">
-<img src="docs/features/watch-task-3.png">
-</details>
-
-- Covered in user stories: 3, 4
-
-
-### Watched list
-
-Watched list is a feature of the Tick It site giving users the ability to view all of their watched tasks in one central place.
-
-<details>
-<summary>Watched list image</summary>
-<img src="docs/features/watched-list.png">
-</details>
-
-- Covered in user stories: 5
-
-### Input Validation
-
-Input Validation is a feature of the Tick It used throughout the site for form inputs. 
-
-<details>
-<summary>Input Validation image</summary>
-<img src="docs/features/input-validation.png">
-</details>
-
-- Covered in user stories: 1, 14, 30
-
-### Task Count
-
-Task Count is a feature of the Tick It site giving users the ability to display the total amount of tasks they have created and display it on their profile page. 
-
-<details>
-<summary>Task Count image</summary>
-<img src="docs/features/task-count.png">
-</details>
-
-- Covered in user stories: 17
-
-### Responsiveness
-
-Responsiveness is a feature which can be seen through the Tick It site giving users the ability to view the site on various display sizes whilst still having an enjoyable user experience.
-
-<details>
-<summary>Responsiveness image</summary>
-<img src="docs/features/responsiveness-1.png">
-<img src="docs/features/responsiveness-2.png">
-</details>
-
-- Covered in user stories: 33
-
-### Search Bar
-
-Search Bar is a feature of the Tick It site giving users the ability to search for tasks or users based on key word input. 
-
-<details>
-<summary>Search Bar image</summary>
-<img src="docs/features/search-bar-1.png">
-<img src="docs/features/search-bar-2.png">
-</details>
-
-- Covered in user stories: 6
-
-### Contact
-
-Contact is a feature of the Tick It site giving users the ability to contact the site admin for any reason such as log in issues, reporting a comment or a general enquiry.
-
-<details>
-<summary>Contact image</summary>
-<img src="docs/features/contact.png">
-</details>
-
-- Covered in user stories: 22
-
-### Error pages
-
-Error pages is a feature of the Tick It site which will display a 404 error page and allow the user to easily navigate back to the site.
-
-<details>
-<summary>Error pages image</summary>
-<img src="docs/features/404.png">
-</details>
-
-- Covered in user stories: 35
-
-### Site Feedback
-
-Site Feedback is a feature of the Tick It site which will presented to users at various times in the form of successful html pages and modal messages.
-
-<details>
-<summary>Site Feedback image</summary>
-<img src="docs/features/feedback-1.png">
-<img src="docs/features/feedback-2.png">
-</details>
-
-- Covered in user stories: 23
-
-### Users list
-
-Users list is a feature of the Tick It site giving users the ability to view all users signed up to the site.
-
-<details>
-<summary>Users list image</summary>
-<img src="docs/features/user-list.png">
-</details>
-
-- Covered in user stories: 25
-
-### Create Pack
-
-Create Pack is a feature of the Tick It site giving users the ability to add tasks to a pack, thus grouping relevant tasks together in one central location.
-
-<details>
-<summary>Create Pack image</summary>
-<img src="docs/features/create-pack-1.png">
-<img src="docs/features/create-pack-2.png">
-</details>
-
-- Covered in user stories: 27
-
-### Edit Pack
-
-Edit Pack is a feature of the Tick It site giving users the ability to add or remove tasks from the pack and also update the title and pack description if they own that particular pack via a form.
-
-<details>
-<summary>Edit Pack image</summary>
-<img src="docs/features/edit-pack-1.png">
-<img src="docs/features/edit-pack-2.png">
-</details>
-
-- Covered in user stories: 29
-
-### Delete Pack
-
-Delete Pack is a feature of the Tick It site giving users the ability to delete an owned pack.
-
-<details>
-<summary>Delete Pack image</summary>
-<img src="docs/features/delete-pack-1.png">
-<img src="docs/features/delete-pack-2.png">
-</details>
-
-- Covered in user stories: 28
-
-
-
-## Future features / improvements
-
-Although alot of effort was put into this project, due to time constraints there is still room for finer refactoring of code and additional functionality / features to implement to the site. 
-
-- Password recovery
-  - Forgotten password option to recover access to the account using a one time link via email
-- Account creation via socials
-  - Allow user authentication with already existing accounts, e.g. LinkedIn, Google, etc. 
-- A notifications feature
-  - A feature to have notifications related to tasks you are involed in / own and if their completion status has been updated.
-- Involvement specific edit rights
-  - Users to be able to make specific edits to a task dependant on their write rights. For example a user who is assigned a task could set it completion status to complete but wouldnt be allowed to edit the task body text or due date.
-
-##### Back to [top](#tick-it)
-
-
-## Validation 
-
-### HTML Validation
-
-The W3C Markup Validation Service was used to validate the HTML of the website. No errors were identified. 
-
-<details><summary>Main page (not logged in)</summary> 
-<img src="docs/validation/html/html-validation-main-page.png"> 
-</details>
-
-<details><summary>Main page (logged in user)</summary> 
-<img src="docs/validation/html/html-validation-main-page-auth.png"> 
-</details> 
-
-<details><summary>Signup page</summary> 
-<img src="docs/validation/html/html-validation-signup-page.png"> 
-</details>
-
-<details><summary>Login page</summary> 
-<img src="docs/validation/html/html-validation-login-page.png"> 
-</details>
-
-<details><summary>Tasks page</summary>
-<img src="docs/validation/html/html-validation-tasks-page.png">
-</details>
-
-<details><summary>Task create page</summary>
-<img src="docs/validation/html/html-validation-task-create-page.png">
-</details>
-
-<details><summary>Task detail page</summary>
-<img src="docs/validation/html/html-validation-task-detail-page.png">
-</details>
-
-<details><summary>Task edit page</summary>
-<img src="docs/validation/html/html-validation-task-edit-page.png">
-</details>
-
-<details><summary>Watched page</summary>
-<img src="docs/validation/html/html-validation-watched-page.png">
-</details>
-
-<details><summary>Pack page</summary>
-<img src="docs/validation/html/html-validation-packs-page.png">
-</details>
-
-<details><summary>Pack create page</summary>
-<img src="docs/validation/html/html-validation-pack-create-page.png">
-</details>
-
-<details><summary>Pack detail page</summary>
-<img src="docs/validation/html/html-validation-pack-detail-page.png">
-</details>
-
-<details><summary>Pack edit page</summary>
-<img src="docs/validation/html/html-validation-pack-edit-page.png">
-</details>
-
-<details><summary>Contact page</summary>
-<img src="docs/validation/html/html-validation-contact-page.png">
-</details>
-
-<details><summary>Users page</summary>
-<img src="docs/validation/html/html-validation-users-page.png">
-</details>
-
-<details><summary>Profile page</summary>
-<img src="docs/validation/html/html-validation-profile-page.png">
-</details>
-
-<details><summary>Profile edit page</summary>
-<img src="docs/validation/html/html-validation-profile-edit-page.png">
-</details>
-
-<details><summary>Change password page</summary>
-<img src="docs/validation/html/html-validation-change-password-page.png">
-</details>
-
-<details><summary>404 page</summary>
-<img src="docs/validation/html/html-validation-404-page.png">
-</details>
-
-
-### CSS Validation
-
-The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. All CSS modules pass the validation with no errors.
-
-<details><summary>App.module.css</summary> 
-<img src="docs/validation/css/css-validation-app.png"> 
-</details> 
-
-<details><summary>Asset.module.css</summary> 
-<img src="docs/validation/css/css-validation-asset.png"> 
-</details>
-
-<details><summary>Avatar.module.css</summary> 
-<img src="docs/validation/css/css-validation-avatar.png"> 
-</details>
-
-<details><summary>Comment.module.css</summary> 
-<img src="docs/validation/css/css-validation-comment.png"> 
-</details>
-
-<details><summary>CommentForm.module.css</summary> 
-<img src="docs/validation/css/css-validation-comment-form.png"> 
-</details>
-
-<details><summary>CredentialsForm.module.css</summary> 
-<img src="docs/validation/css/css-validation-credentials-form.png"> 
-</details>
-
-<details><summary>Dashboard.module.css</summary> 
-<img src="docs/validation/css/css-validation-dashboard.png"> 
-</details>
-
-<details><summary>DropdDown.module.css</summary> 
-<img src="docs/validation/css/css-validation-dropdown.png"> 
-</details>
-
-<details><summary>DropdDown.module.css</summary> 
-<img src="docs/validation/css/css-validation-index.png"> 
-</details>
-
-<details><summary>LandingPage.module.css</summary> 
-<img src="docs/validation/css/css-validation-landing-page.png"> 
-</details>
-
-<details><summary>NavBar.module.css</summary> 
-<img src="docs/validation/css/css-validation-nav-bar.png"> 
-</details>
-
-<details><summary>Pack.module.css</summary> 
-<img src="docs/validation/css/css-validation-pack.png"> 
-</details>
-
-<details><summary>PackCreateEditForm.module.css</summary> 
-<img src="docs/validation/css/css-validation-pack-create-edit-form.png"> 
-</details>
-
-<details><summary>PackListings.module.css</summary> 
-<img src="docs/validation/css/css-validation-pack-listings.png"> 
-</details>
-
-<details><summary>ProfilePage.module.css</summary> 
-<img src="docs/validation/css/css-validation-profile-page.png"> 
-</details>
-
-<details><summary>ScrollToTop.module.css</summary> 
-<img src="docs/validation/css/css-validation-scroll-to-top.png"> 
-</details>
-
-<details><summary>SearchBar.module.css</summary> 
-<img src="docs/validation/css/css-validation-search-bar.png"> 
-</details>
-
-<details><summary>Task.module.css</summary> 
-<img src="docs/validation/css/css-validation-task.png"> 
-</details>
-
-<details><summary>TaskListings.module.css</summary> 
-<img src="docs/validation/css/css-validation-tasks-listings.png"> 
-</details>
-
-<details><summary>UserProfiles.module.css</summary> 
-<img src="docs/validation/css/css-validation-user-profiles.png"> 
-</details>
-
-
-### ESLint JavaScript JSX Validation 
-
-All JavaScript files were validated using ESLint JavaScript validator. All files passed however there were some rules that needed to be set in the eslintrc.js file as described below:
-
-`"rules": {
-        "react/prop-types": 0,
-        "react/no-children-prop": "off",
-        "react/display-name": "off"
-    }`
-
-  - `"react/prop-types": 0` was used to suppress the errors relating to prop-types
-  - `"react/no-children-prop": "off"` was used to suppress the errors related to the Infinit Scroll component using children={} 
-  - `"react/display-name": "off"` was used to suppress the need for a component display name 
-
-### Chrome Dev Tools Lighthouse Validation
-
-Lighthouse was used to test the performance, accessibility, best practice and SEO of the site. The validation was done for both desktop & mobile.  
-
-#### Desktop 
-<details><summary>Results</summary>
-
-<details><summary>Main page (not logged in)</summary> 
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-main-page.png"> 
-</details>
-
-<details><summary>Main page (logged in user)</summary> 
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-main-page-auth.png"> 
-</details> 
-
-<details><summary>Signup page</summary> 
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-signup-page.png"> 
-</details>
-
-<details><summary>Login page</summary> 
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-login-page.png"> 
-</details>
-
-<details><summary>Tasks page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-tasks-page.png">
-</details>
-
-<details><summary>Task create page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-task-create-page.png">
-</details>
-
-<details><summary>Task edit page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-task-edit-page.png">
-</details>
-
-<details><summary>Task detail page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-task-detail-page.png">
-</details>
-
-<details><summary>Watched page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-watched-page.png">
-</details>
-
-<details><summary>Pack page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-packs-page.png">
-</details>
-
-<details><summary>Pack create page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-pack-create-page.png">
-</details>
-
-<details><summary>Pack edit page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-pack-edit-page.png">
-</details>
-
-<details><summary>Pack detail page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-pack-detail-page.png">
-</details>
-
-<details><summary>Contact page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-contact-page.png">
-</details>
-
-<details><summary>Users page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-users-page.png">
-</details>
-
-<details><summary>Profile page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-profile-page.png">
-</details>
-
-<details><summary>Profile edit page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-profile-edit-page.png">
-</details>
-
-<details><summary>Change password page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-change-password-page.png">
-</details>
-
-<details><summary>404 page</summary>
-<img src="docs/validation/lighthouse/desktop-lighthouse-validation-404-page.png">
-</details>
 </details>
 
 
