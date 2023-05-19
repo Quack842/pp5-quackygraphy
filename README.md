@@ -136,6 +136,8 @@ After starting with the website, I made a few changes like the design but the co
 </details>
 
 # Technologies Used
+[Back to top ⇧](#quackygraphy---a-platform-for-sharing-your-masterpiece-shots) <br />
+[Table Of Contents ⇧](#table-of-content)
 
 ## Coding Languages
 
@@ -193,22 +195,38 @@ There was a few dependencies that was installed during development, but was not 
 | react-scripts | 5.0.1 |![Check](/docs/readme/check.svg)
 | web-vitals | 2.1.4 |![Check](/docs/readme/check.svg)
 
-## Features
+# Features
+[Back to top ⇧](#quackygraphy---a-platform-for-sharing-your-masterpiece-shots) <br />
+[Table Of Contents ⇧](#table-of-content)
 
 In its entirety the website consists of a variety of features across the many site pages as listed below.
 
-### Authentication
-
-Authentication is a feature of the Tick It site, users will have to be authenticated whilst attempting to log in or else they will not be able to use any functionality of the site or view any information that Tick It users have posted.
-
+## Navigation
+The Navigation bar in the mobile size has an offcanvas design for the menu bar instead of the deafult dropdown feature. The Offcanvas feature will also close when a user choose any of the tabs.
 <details>
-<summary>Authentication image</summary>
-<img src="docs/features/authentication.png">
+<summary>Navigation Bar On Desktop - Not Signed In</summary>
+
+![Navbar Desktop](/docs/features/navbar-desktop.png)
+</details>
+<details>
+<summary>Navigation Bar On Desktop - Signed In</summary>
+
+![Navbar Desktop](/docs/features/navbar-loggin-desktop.png)
+</details>
+<details>
+<summary>Navigation Bar On Mobile - Not Signed In</summary>
+
+![Navbar Mobile](/docs/features/navbar-mobile.png)
+![Navbar Mobile](/docs/features/navbar-offcanvas.png)
+</details>
+<details>
+<summary>Navigation Bar On Mobile - Signed In</summary>
+
+![Navbar Mobile](/docs/features/navbar-loggin-mobile.png)
 </details>
 
-- Covered in user stories: 1, 14, 31
 
-### Log In
+## Register
 
 Log in is a feature of the Tick It site this allows users to log in and view content relevant to their profiles, this feature also controls security and rights of the site with it requiring authentication
 

@@ -91,6 +91,8 @@ const RegisterForm = () => {
             <PasswordStrengthBar 
               password={password1}
               minLength={8}
+              scoreWords={["Weaksause","Still weak", "A little Better", "I Guess that will do", "Unbreakable!"]}
+              shortScoreWord="Too Short"
               barColors={["#ddd", "#b20000", "#af00b2", "#0900b2", "#00b24d"]}
             />
             {errors.password1?.map((message, idx) => (
