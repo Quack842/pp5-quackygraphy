@@ -1,4 +1,4 @@
-# Quacky-Graphy
+# QuackyGraphy
 
 ![Responsive Image](docs/readme/responsive.png)
 
