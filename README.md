@@ -226,53 +226,86 @@ The Navigation bar in the mobile size has an offcanvas design for the menu bar i
 </details>
 
 
-## Register
+## Register Page
 
-Log in is a feature of the Tick It site this allows users to log in and view content relevant to their profiles, this feature also controls security and rights of the site with it requiring authentication
-
-<details>
-<summary>Log In image</summary>
-<img src="docs/features/login.png">
-</details>
-
-- Covered in user stories: 14
-
-### Log Out
-
-Log Out is a feature of the Tick It site this will give users the ability to log out of their profile providing a level of security if using the same device as others.
+This Page will give the user the option to create an account. The Registration Page has a "Password Strength bar".
 
 <details>
-<summary>Log Out image</summary>
-<img src="docs/features/log-out.png">
+<summary>Password Too Short</summary>
+This will show while the password is under 8 characters.
+
+![Too Short Password](/docs/features/pass-short.png)
+</details>
+<details>
+<summary>Password Weaksause</summary>
+
+![Weaksause Password](/docs/features/pass-weaksause.png)
+</details>
+<details>
+<summary>Password Still Weak</summary>
+
+![Still Weak Password](/docs/features/pass-still-weak.png)
+</details>
+<details>
+<summary>Password A Little Better</summary>
+
+![Little Better Password](/docs/features/pass-little-better.png)
+</details>
+<details>
+<summary>Password Guess That Will Do</summary>
+
+![Guess It'll Do Password](/docs/features/pass-guess-itll-do.png)
+</details>
+<details>
+<summary>Password Unbreakable</summary>
+
+![Unbreakable Password](/docs/features/pass-unbreakable.png)
 </details>
 
-- Covered in user stories: 15
+## Sign In
 
-### Sign Up
+When the user Log In, after creating an account, Their user user details should be saved and the browser will remeber the user so they don't have to sign in everytime.
 
-Sign Up is a feature of the Tick It site this will give users the ability to create an account and get involved in the site and use its features. 
+## Home page
+
+Home page is where users, Signed in or not, can view all the posts that users have posted. If the user is not Signed In, they will not be able to like, comment, reate a post or Follow/Unfollow other Users.
 
 <details>
-<summary>Sign Up image</summary>
-<img src="docs/features/sign-up.png">
+<summary>Home Page Image - Signed Out</summary>
+
+![Home Page - Signed Out](/docs/features/home-signed-out.png)
 </details>
-
-- Covered in user stories: 1
-
-### Home page
-
-Home page is a feature of the Tick It site users will gain an understanding of what the site is about if not logged in and if logged in will be shown various information which is of high priority.
-
 <details>
-<summary>Home page image</summary>
-<img src="docs/features/home-page.png">
+<summary>Home Page Image - Signed Out - Like Icon</summary>
+
+![Home Page - Signed Out](/docs/features/home-like-signed-out.png)
+</details>
+<details>
+<summary>Home Page Image - Signed In</summary>
+
+![Home Page - Signed Out](/docs/features/home-signed-in.png)
+</details>
+<details>
+<summary>Home Page Image - Signed In - Like Icon</summary>
+
+![Home Page - Signed Out](/docs/features/home-like-signed-in.png)
+</details>
+<details>
+<summary>Home Page Image - Liked</summary>
+When the user is signed in and likes another users post, there will be a pop message on the top right corner of the page, letting the user know that they have liked a post.
+
+![Home Page - Signed Out](/docs/features/home-liked.png)
+</details>
+<details>
+<summary>Home Page Image - Signed In - Follow/Unfollow</summary>
+When the user is signed in, they will also have the option to follow and unfollow other users.
+
+![Home Page - Signed Out](/docs/features/Follow-Unfollow.png)
 </details>
 
-- Covered in user stories: 19
+## FYP (For You Page)
 
-### Nav Bar
-
-Nav Bar is a feature of the Tick It site giving users the ability to seamlessly navigate the site 
+The FYP Page can only be views if the user is signed in 
 
 <details>
 <summary>Nav Bar image</summary>

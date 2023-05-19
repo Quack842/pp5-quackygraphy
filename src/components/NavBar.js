@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import {
   Navbar,
   Nav,
@@ -41,7 +41,7 @@ const NavBar = () => {
       removeTokenTimestamp();
     } catch (error) {}
   };
-
+  
   const addPostIcon = (
     <NavLink
       onClick={handleClose}
@@ -53,18 +53,10 @@ const NavBar = () => {
   );
   const loggedInIcons = (
     <>
-      <NavLink
-        onClick={handleClose}
-        className={styles.NavLink}
-        to="/feed"
-      >
+      <NavLink onClick={handleClose} className={styles.NavLink} to="/feed">
         <i className="fa-solid fa-bars-staggered"></i> FYP
       </NavLink>
-      <NavLink
-        onClick={handleClose}
-        className={styles.NavLink}
-        to="/liked"
-      >
+      <NavLink onClick={handleClose} className={styles.NavLink} to="/liked">
         <i className="fa-solid fa-heart-pulse"></i> Liked
       </NavLink>
       <Nav className={styles.NavLink}>
@@ -92,12 +84,7 @@ const NavBar = () => {
   );
   const loggedOutIcons = (
     <>
-      <NavLink
-        onClick={handleClose}
-        className={styles.NavLink}
-         
-        to="/signin"
-      >
+      <NavLink onClick={handleClose} className={styles.NavLink} to="/signin">
         <i className="fa-solid fa-door-open"></i> Sign In
       </NavLink>
       <NavLink className={styles.NavLink} to="/register" onClick={handleClose}>
@@ -105,6 +92,14 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
+  useEffect(() => {
+    // Redirect non-logged-in users from /feed and /liked pages
+    if (!currentUser && (window.location.pathname === "/feed" || window.location.pathname === "/liked")) {
+      navigate("/"); // Redirect to the home page or login page
+    }
+  }, [currentUser, navigate]);
+  
   return (
     <>
       <Navbar
