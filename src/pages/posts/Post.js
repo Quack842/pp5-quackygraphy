@@ -60,6 +60,8 @@ const Post = (props) => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       navigate("/");
+      // Refresh the page
+      window.location.reload(); 
     } catch (error) {}
   };
 

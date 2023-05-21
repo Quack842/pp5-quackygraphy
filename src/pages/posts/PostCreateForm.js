@@ -23,6 +23,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 function PostCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [postData, setPostData] = useState({
     title: "",
@@ -72,12 +73,17 @@ function PostCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
+      // Disable the button
+      setIsSubmitting(true); 
       const { data } = await axiosReq.post("/posts/", formData);
       navigate(`/posts/${data.id}`);
     } catch (error) {
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }
+    } finally {
+      // Enable the button
+      setIsSubmitting(false); 
     }
   };
 
@@ -180,7 +186,11 @@ function PostCreateForm() {
       <Button className={btnStyles.ButtonCancel} onClick={() => navigate("/")}>
         Cancel
       </Button>
-      <Button type="submit" className={btnStyles.Button}>
+      <Button
+        type="submit"
+        className={btnStyles.Button}
+        disabled={isSubmitting}
+      >
         Create
       </Button>
     </div>
