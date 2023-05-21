@@ -592,12 +592,14 @@ As shows in the Features Section, The user wont be able to add, edit, like or de
 
 | **Bug** | **Fix** | **Image** |
 | --- | --- | --- |
-| When user upload invalid image type, then change the image, the error message does not go away | I Fixed it by adding extra code that in the PostCreateForm, as shown in the Image | ![Bug](/docs/readme/bug-fixed.png) |
+| A tester brought up a problem with the Post edit/create form. When they add an image that is not valid, the warning message shows, but does not go away when they reselect the an image. | I fixed this by adding code to clear the error when a user reselects an image | ![Bug Image](/docs/readme/bug-clear-image-error.png) |
 | The Form for the Create and Edit Forms looked "Wonky" when used on a mobile | I Changed the stying of Col span. The Image shows the Bug | ![Bug](/docs/readme/bugs-create-edit-form.png) |
+| When the user tries to change their camera type on their profile, it does not update, It stays as "All". The code on the front-end seems perfect so I knew the problem was not in the front-end. | After a long struggle, I finally realized that the problem had to be in the back-end. I noticed that I added the camera_type to the serializers. I know it is technically a back-end bug report, but I noticed the problem in the front-end.  | N/B 
+| A tester informed me that when they selected the "Compact Digital Camera", not the enitre word was formatted and only the first half. | I fixed this by changing the formatType in the ProfilePage. | ![Bug](/docs/readme/bug-camera-type-format-error.png) ![Bug](/docs/readme/bug-format-text-fixed.png) |
 
 There was a Few More Errors and Bugs, but unfortunatly I didn't document them all because typically when I code, I fix the problem while coding, these bugs that I list Here, Was suggested/shows by People I asked to help test my website
 
-The other Bugs is Mentioned in the [Credits](#credits) Section as it was bugs and errors, but It was Thanks to these articles that I could Fix them.
+The other Bugs is Mentioned in the [Credits](#credits) Section even though it was bugs and errors, It was Thanks to these articles that I could Fix them.
 
 # Deployment
 [Back to top ⇧](#quacky-graphy) <br />

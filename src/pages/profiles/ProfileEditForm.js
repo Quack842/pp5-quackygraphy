@@ -36,15 +36,15 @@ const ProfileEditForm = () => {
     camera_type: "",
     image: "",
   });
-  const { name, content, camera_type, image } = profileData;
+  const { name, camera_type, content,  image } = profileData;
 
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, camera_type, image } = data;
-          setProfileData({ name, content, camera_type, image });
+          const { name, camera_type, content,  image } = data;
+          setProfileData({ name, camera_type, content,  image });
         } catch (error) {
           navigate("/");
         }
@@ -56,11 +56,18 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, navigate, id]);
 
-  const handleChange = (event) => {
-    setProfileData({
-      ...profileData,
-      [event.target.name]: event.target.value,
-    });
+  const handleCameraTypeChange = (event) => {
+    setProfileData((prevProfileData) => ({
+      ...prevProfileData,
+      camera_type: event.target.value,
+    }));
+  };
+  
+  const handleBioChange = (event) => {
+    setProfileData((prevProfileData) => ({
+      ...prevProfileData,
+      content: event.target.value,
+    }));
   };
 
   const handleSubmit = async (event) => {
@@ -88,7 +95,6 @@ const ProfileEditForm = () => {
 
   const textFields = (
     <div className="text-center">
-      {/* Form For Uploading the Image */}
       {/* Title */}
       <Form.Group className="mb-3 mt-3" controlId="title">
         {/* Preferred Camera Type  */}
@@ -97,7 +103,7 @@ const ProfileEditForm = () => {
           value={camera_type}
           name="camera_type"
           className="mb-3"
-          onChange={handleChange}
+          onChange={handleCameraTypeChange}
           aria-label="Camera Type"
           rows={7}
         >
@@ -113,7 +119,7 @@ const ProfileEditForm = () => {
         <Form.Control
           as="textarea"
           value={content}
-          onChange={handleChange}
+          onChange={handleBioChange}
           name="content"
           rows={7}
         />

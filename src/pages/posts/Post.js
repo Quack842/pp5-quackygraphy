@@ -152,7 +152,7 @@ const Post = (props) => {
           </div>
         </Card.Header>
         {/* Image that the user posted */}
-        <Link>
+        <Link to={`/posts/${id}`}>
           <Card.Img className={styles.Image} src={image} alt={title} />
         </Link>
         <Card.Footer className={styles.Footer}>

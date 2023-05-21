@@ -33,10 +33,11 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
 
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+
   // This will remove the "_" in the posted data and replace it with a space
   const formatType = (type) => {
     if (type) {
-      return type.replace("_", " ");
+      return type.split("_").join(" ");
     }
     return "";
   };

@@ -64,6 +64,13 @@ function PostEditForm() {
         ...postData,
         image: URL.createObjectURL(event.target.files[0]),
       });
+      // Clear the image error message
+      setErrors((prevErrors) => {
+        return {
+          ...prevErrors,
+          image: [],
+        };
+      });
     }
   };
 
@@ -231,7 +238,10 @@ function PostEditForm() {
           </Container>
         </Col>
         <Col md={1}></Col>
-        <Col md={5} className={`${styles.Container} d-none d-md-block p-0 p-md-2`}>
+        <Col
+          md={5}
+          className={`${styles.Container} d-none d-md-block p-0 p-md-2`}
+        >
           <Container>{textFields}</Container>
         </Col>
       </Row>
